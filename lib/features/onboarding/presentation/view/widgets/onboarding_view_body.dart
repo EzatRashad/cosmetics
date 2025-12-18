@@ -1,6 +1,8 @@
 import 'package:cosmetics/core/style/text_styles.dart';
 import 'package:cosmetics/core/utils/app_images.dart';
+import 'package:cosmetics/core/utils/navigate.dart';
 import 'package:cosmetics/core/utils/utils.dart';
+import 'package:cosmetics/features/login/presentatin/view/login_view.dart';
 import 'package:cosmetics/features/onboarding/presentation/view/widgets/onboarding_page_view.dart';
 import 'package:flutter/material.dart';
 
@@ -55,21 +57,28 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
             Expanded(child: OnboardingPageView(pageController: pageController)),
             currentPage == 2
                 ? Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 50),
-                  child: Container(
-                      height: 50,
-                      width: 200,
-                      margin: const EdgeInsets.only(bottom: 40),
-                      decoration: BoxDecoration(
-                        color: Color(0xff434C6D),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: const Center(
-                        child: Text(  "Get Started", style: TextStyle(color: Colors.white),
+                    padding: const EdgeInsets.symmetric(horizontal: 50),
+                    child: GestureDetector(
+                      onTap: () {
+                        context.nextScreen(LoginView(), replacment: true);
+                      },
+                      child: Container(
+                        height: 50,
+                        width: 200,
+                        margin: const EdgeInsets.only(bottom: 40),
+                        decoration: BoxDecoration(
+                          color: Color(0xff434C6D),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: const Center(
+                          child: Text(
+                            "Get Started",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
                       ),
                     ),
-                  
-                ))
+                  )
                 : GestureDetector(
                     onTap: () {
                       if (currentPage < 2) {
@@ -77,8 +86,6 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                           duration: const Duration(milliseconds: 300),
                           curve: Curves.easeIn,
                         );
-                      } else {
-                        // Navigate to another screen or perform an action
                       }
                     },
                     child: Container(
@@ -90,11 +97,13 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: const Center(
-                        child: Image(image: AssetImage(Assets.assetsImagesForward)),
+                        child: Image(
+                          image: AssetImage(Assets.assetsImagesForward),
+                        ),
                       ),
                     ),
                   ),
-                  50.ph,
+            50.ph,
           ],
         ),
       ),
