@@ -1,5 +1,7 @@
 import 'package:cosmetics/core/style/app_colors.dart';
 import 'package:cosmetics/core/utils/app_images.dart';
+import 'package:cosmetics/core/utils/navigate.dart';
+import 'package:cosmetics/features/onboarding/presentation/view/onboarding_view.dart';
 import 'package:flutter/material.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -34,6 +36,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     _controller.forward();
 
     Future.delayed(const Duration(seconds: 1), () {
+      context.nextScreen(OnboardingView(), replacment: true);
     });
   }
 
@@ -57,10 +60,9 @@ class _SplashViewBodyState extends State<SplashViewBody>
               children: const [
                 Image(
                   image: AssetImage(Assets.assetsImagesSplashLogo),
-                  width: 150,
-                  height: 150,
+                  width: 140,
+                  height: 140,
                 ),
-                SizedBox(height: 16),
                 Image(
                   image: AssetImage(Assets.assetsImagesSplashText),
                   width: 100,

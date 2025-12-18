@@ -1,3 +1,5 @@
+import 'package:cosmetics/core/functions/on_generate_route.dart';
+import 'package:cosmetics/core/style/app_colors.dart';
 import 'package:cosmetics/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter/material.dart';
 
@@ -8,13 +10,17 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        scaffoldBackgroundColor: AppColors.background
+      ),
 
-      home: const SplashView(),
+       onGenerateRoute: onGenerateRoute,
+      initialRoute: SplashView.routeName,
     );
   }
 }
