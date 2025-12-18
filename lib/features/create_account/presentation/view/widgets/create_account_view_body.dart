@@ -6,21 +6,24 @@ import 'package:cosmetics/core/utils/utils.dart';
 import 'package:cosmetics/core/widgets/button_widget.dart';
 import 'package:cosmetics/core/widgets/custom_text_form_filed.dart';
 import 'package:cosmetics/features/create_account/presentation/view/create_account_view.dart';
+import 'package:cosmetics/features/login/presentatin/view/login_view.dart';
 import 'package:cosmetics/features/login/presentatin/view/widgets/country_code.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class LoginViewBody extends StatefulWidget {
-  const LoginViewBody({super.key});
+class CreateAccountViewBody extends StatefulWidget {
+  const CreateAccountViewBody({super.key});
 
   @override
-  State<LoginViewBody> createState() => _LoginViewBodyState();
+  State<CreateAccountViewBody> createState() => _CreateAccountViewBodyState();
 }
 
-class _LoginViewBodyState extends State<LoginViewBody> {
+class _CreateAccountViewBodyState extends State<CreateAccountViewBody> {
   final phone = TextEditingController();
-  final password = TextEditingController();
 
+  final name = TextEditingController();
+  final password = TextEditingController();
+  final confirm_password = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -35,18 +38,13 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               children: [
                 Column(
                   children: [
-                    48.ph,
-                    Image.asset(Assets.assetsImagesLoginLogo, height: 227),
-                    25.ph,
-                    Text("Login Now", style: TextStyles.textStyle24Bold),
-                    14.ph,
-                    Text(
-                      "Please enter the details below to continue",
-                      style: TextStyles.textStyle14.copyWith(
-                        color: AppColors.hint_text,
-                      ),
-                    ),
-                    25.ph,
+                    40.ph,
+                    Image.asset(Assets.assetsImagesSplashLogo, width: 67),
+                    35.ph,
+                    Text("Create Account", style: TextStyles.textStyle24Bold),
+                    50.ph,
+                    CustomTextFormFiled(label: "Your Name", controller: name),
+                    10.ph,
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -64,8 +62,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                         ),
                       ],
                     ),
-
-                    8.ph,
+                    10.ph,
                     CustomTextFormFiled(
                       label: "Password",
                       controller: password,
@@ -75,24 +72,22 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                         fit: BoxFit.scaleDown,
                       ),
                     ),
-                    12.ph,
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        "Forget Password?",
-                        style: TextStyles.textStyle12.copyWith(
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.primary,
-                        ),
+                    10.ph,
+                    CustomTextFormFiled(
+                      label: "Confirm Password",
+                      controller: confirm_password,
+                      obscureText: true,
+                      suffixIcon: SvgPicture.asset(
+                        Assets.assetsImagesVisibilyOff,
+                        fit: BoxFit.scaleDown,
                       ),
                     ),
-                    43.ph,
-
+                    89.ph,
                     ButtonWidget(
                       width: 250,
                       height: 56,
                       radius: 24,
-                      title: "Login",
+                      title: "Next",
                       onTap: () {
                         //context.nextScreen(  )
                       },
@@ -102,17 +97,17 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Don’t have an account?  ',
+                          'Have an account?  ',
                           style: TextStyles.textStyle12.copyWith(
                             color: AppColors.secondary,
                           ),
                         ),
                         GestureDetector(
                           onTap: () {
-                            context.nextScreen(CreateAccountView());
+                            context.nextScreen(LoginView());
                           },
                           child: Text(
-                            'Register',
+                            'Login',
                             textAlign: TextAlign.center,
                             style: TextStyles.textStyle12.copyWith(
                               color: AppColors.primary,
@@ -122,7 +117,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                         ),
                       ],
                     ),
-                   ],
+                  ],
                 ),
               ],
             ),

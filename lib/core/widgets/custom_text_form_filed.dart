@@ -8,12 +8,10 @@ class CustomTextFormFiled extends StatelessWidget {
     required this.label,
     required this.controller,
     this.obscureText = false,
-    required this.hintText,
     this.suffixIcon,
     this.validator,
   });
   final String label;
-  final String hintText;
   final TextEditingController controller;
   final bool obscureText;
   final Widget? suffixIcon;
@@ -33,9 +31,7 @@ class CustomTextFormFiled extends StatelessWidget {
         isDense: true,
         label: Text(label, style: TextStyles.textStyle14),
         suffixIcon: suffixIcon,
-        hintText: hintText,
-        hintStyle: TextStyles.textStyle12,
-        enabledBorder: OutlineInputBorder(
+         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(color: AppColors.borderColor, width: 0.5),
         ),
