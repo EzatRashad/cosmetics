@@ -29,6 +29,7 @@ class CountryCodeDropdownState extends State<CountryCodeDropdown> {
       ),
 
       decoration: InputDecoration(
+        isDense: true,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(color: AppColors.borderColor, width: 0.5),

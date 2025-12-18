@@ -23,12 +23,14 @@ class CustomTextFormFiled extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       validator: validator,
+      
       onTapOutside: (event) => FocusManager.instance.primaryFocus!.unfocus(),
 
       cursorColor: AppColors.borderColor,
       controller: controller,
       obscureText: obscureText,
       decoration: InputDecoration(
+        isDense: true,
         label: Text(label, style: TextStyles.textStyle14),
         suffixIcon: suffixIcon,
         hintText: hintText,
