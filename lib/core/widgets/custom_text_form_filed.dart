@@ -32,16 +32,16 @@ class CustomTextFormFiled extends StatelessWidget {
         suffixIcon: suffixIcon,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: AppColors.borderColor, width: 0.5),
+          borderSide: BorderSide(color: AppColors.borderColor, width:1.5),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
 
-          borderSide: BorderSide(color: AppColors.borderColor, width: 1),
+          borderSide: BorderSide(color: AppColors.borderColor, width: 1.5),
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(width: .5),
+          borderSide: BorderSide(width: 1.5,color: AppColors.borderColor),
         ),
         errorMaxLines: 3,
         errorStyle: Theme.of(

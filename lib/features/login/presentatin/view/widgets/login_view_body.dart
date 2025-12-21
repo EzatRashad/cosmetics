@@ -69,7 +69,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                       controller: password,
                       obscureText: true,
                       suffixIcon: SvgPicture.asset(
-                        Assets.assetsImagesVisibilyOff,
+                        Assets.assetsIconsVisibilyOff,
                         fit: BoxFit.scaleDown,
                       ),
                     ),

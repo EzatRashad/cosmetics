@@ -33,12 +33,12 @@ class CountryCodeDropdownState extends State<CountryCodeDropdown> {
         isDense: true,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: AppColors.borderColor, width: 0.5),
+          borderSide: BorderSide(color: AppColors.borderColor, width: 1.5),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
 
-          borderSide: BorderSide(color: AppColors.borderColor, width: 1),
+          borderSide: BorderSide(color: AppColors.borderColor, width: 1.5),
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),

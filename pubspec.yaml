@@ -13,6 +13,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_svg :
   pin_code_fields :
+  flutter_bloc:
 
 dev_dependencies:
   flutter_test:
@@ -25,6 +26,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/icons/
 
   fonts:
     - family: Segoe
@@ -47,6 +49,8 @@ flutter_launcher_icons:
 
 
 flutter_assets:
-  assets_path: assets/images/
+  assets_path:
+    - assets/images/
+    - assets/icons/
   output_path: lib/core/utils/
   filename: app_images.dart

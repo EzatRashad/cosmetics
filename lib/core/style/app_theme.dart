@@ -1,12 +1,13 @@
 import 'package:cosmetics/core/style/app_colors.dart';
-import 'package:flutter/material.dart'; 
+import 'package:flutter/material.dart';
 
 class AppTheme {
   static bool dTheme = false;
   static ThemeMode currentTheme = ThemeMode.light;
   static ThemeData lightTheme = ThemeData(
     fontFamily: "montserrat",
-        scaffoldBackgroundColor: AppColors.background,
+    scaffoldBackgroundColor: AppColors.background,
+
     //  primaryColor: ColorsManager.white,
     // appBarTheme: AppBarTheme(
     //   backgroundColor: AppColors.white,
@@ -22,7 +23,6 @@ class AppTheme {
     //     color: AppColors.primary,
     //   ),
     // ),
-
     textTheme: TextTheme(
       titleLarge: TextStyle(
         color: AppColors.secondary,
@@ -48,6 +48,7 @@ class AppTheme {
   static ThemeData darkTheme = ThemeData(
     fontFamily: "montserrat",
     scaffoldBackgroundColor: AppColors.black,
+
     //  primaryColor: ColorsManager.white,
     // appBarTheme: AppBarTheme(
     //   backgroundColor: AppColors.black,
@@ -62,7 +63,6 @@ class AppTheme {
     //     color: AppColors.white,
     //   ),
     // ),
-
     textTheme: TextTheme(
       titleLarge: TextStyle(
         color: AppColors.white,

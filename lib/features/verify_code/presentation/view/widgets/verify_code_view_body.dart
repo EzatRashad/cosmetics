@@ -1,13 +1,12 @@
 import 'package:cosmetics/core/utils/app_images.dart';
 import 'package:cosmetics/core/utils/utils.dart';
-import 'package:cosmetics/core/widgets/button_widget.dart';
+import 'package:cosmetics/features/verify_code/presentation/view/widgets/verify_button.dart';
+import 'package:cosmetics/features/verify_code/presentation/view/widgets/verify_code_fields.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../../core/style/app_colors.dart';
 
 class VerifyCodeViewBody extends StatefulWidget {
   const VerifyCodeViewBody({super.key});
-
   @override
   State<VerifyCodeViewBody> createState() => _VerifyCodeViewBodyState();
 }
@@ -95,45 +94,13 @@ class _VerifyCodeViewBodyState extends State<VerifyCodeViewBody> {
                     ),
                   ),
                   20.ph,
-                      
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: List.generate(
-                      4,
-                      (index) => SizedBox(
-                        width: 45,
-                        height: 45,
-                        child: TextFormField(
-                          controller: controllers[index],
-                          focusNode: focusNodes[index],
-                          textAlign: TextAlign.center,
-                          keyboardType: TextInputType.number,
-                          maxLength: 1,
-                          cursorColor: AppColors.dark_gray,
-                          onChanged: (value) => onCodeChanged(value, index),
-                          decoration: InputDecoration(
-                            counterText: '',
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                              borderSide: BorderSide(
-                                color: AppColors.primary,
-                                width: 1,
-                              ),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                              borderSide: BorderSide(
-                                width: 1,
-                                color: controllers[index].text.isNotEmpty
-                                    ? AppColors.primary
-                                    : AppColors.borderColor, // ⬜ لما فاضي
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+
+                  VerifyCodeFields(
+                    controllers: controllers,
+                    focusNodes: focusNodes,
+                    onCodeChanged: onCodeChanged,
                   ),
+
                   43.ph,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -149,7 +116,7 @@ class _VerifyCodeViewBodyState extends State<VerifyCodeViewBody> {
                           textAlign: TextAlign.center,
                           style: theme.titleMedium!.copyWith(
                             fontSize: 12,
-                            color: AppColors.primary,
+                            color: AppColors.primary.withValues(alpha: .5),
                           ),
                         ),
                       ),
@@ -161,13 +128,7 @@ class _VerifyCodeViewBodyState extends State<VerifyCodeViewBody> {
                     ],
                   ),
                   48.ph,
-                  ButtonWidget(
-                    width: 250,
-                    height: 56,
-                    radius: 24,
-                    title: "Done",
-                    onTap: () {},
-                  ),
+                  VerifyButton(),
                 ],
               ),
             ),

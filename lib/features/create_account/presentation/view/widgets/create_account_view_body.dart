@@ -69,7 +69,7 @@ class _CreateAccountViewBodyState extends State<CreateAccountViewBody> {
                       controller: password,
                       obscureText: true,
                       suffixIcon: SvgPicture.asset(
-                        Assets.assetsImagesVisibilyOff,
+                        Assets.assetsIconsVisibilyOff,
                         fit: BoxFit.scaleDown,
                       ),
                     ),
@@ -79,7 +79,7 @@ class _CreateAccountViewBodyState extends State<CreateAccountViewBody> {
                       controller: confirm_password,
                       obscureText: true,
                       suffixIcon: SvgPicture.asset(
-                        Assets.assetsImagesVisibilyOff,
+                        Assets.assetsIconsVisibilyOff,
                         fit: BoxFit.scaleDown,
                       ),
                     ),
