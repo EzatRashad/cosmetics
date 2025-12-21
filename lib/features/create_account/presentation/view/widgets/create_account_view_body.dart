@@ -1,13 +1,12 @@
 import 'package:cosmetics/core/style/app_colors.dart';
-import 'package:cosmetics/core/style/text_styles.dart';
 import 'package:cosmetics/core/utils/app_images.dart';
 import 'package:cosmetics/core/utils/navigate.dart';
 import 'package:cosmetics/core/utils/utils.dart';
 import 'package:cosmetics/core/widgets/button_widget.dart';
 import 'package:cosmetics/core/widgets/custom_text_form_filed.dart';
-import 'package:cosmetics/features/create_account/presentation/view/create_account_view.dart';
 import 'package:cosmetics/features/login/presentatin/view/login_view.dart';
 import 'package:cosmetics/features/login/presentatin/view/widgets/country_code.dart';
+import 'package:cosmetics/features/verify_code/presentation/view/verify_code_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -28,6 +27,8 @@ class _CreateAccountViewBodyState extends State<CreateAccountViewBody> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context).textTheme;
+
     return SafeArea(
       child: Scaffold(
         body: Padding(
@@ -41,7 +42,7 @@ class _CreateAccountViewBodyState extends State<CreateAccountViewBody> {
                     40.ph,
                     Image.asset(Assets.assetsImagesSplashLogo, width: 67),
                     35.ph,
-                    Text("Create Account", style: TextStyles.textStyle24Bold),
+                    Text("Create Account", style: theme.titleLarge),
                     50.ph,
                     CustomTextFormFiled(label: "Your Name", controller: name),
                     10.ph,
@@ -89,7 +90,7 @@ class _CreateAccountViewBodyState extends State<CreateAccountViewBody> {
                       radius: 24,
                       title: "Next",
                       onTap: () {
-                        //context.nextScreen(  )
+                        context.nextScreen(VerifyCodeView());
                       },
                     ),
                     86.ph,
@@ -98,9 +99,7 @@ class _CreateAccountViewBodyState extends State<CreateAccountViewBody> {
                       children: [
                         Text(
                           'Have an account?  ',
-                          style: TextStyles.textStyle12.copyWith(
-                            color: AppColors.secondary,
-                          ),
+                          style: theme.titleSmall!.copyWith(fontSize: 12),
                         ),
                         GestureDetector(
                           onTap: () {
@@ -109,9 +108,9 @@ class _CreateAccountViewBodyState extends State<CreateAccountViewBody> {
                           child: Text(
                             'Login',
                             textAlign: TextAlign.center,
-                            style: TextStyles.textStyle12.copyWith(
+                            style: theme.titleMedium!.copyWith(
+                              fontSize: 12,
                               color: AppColors.primary,
-                              fontWeight: FontWeight.w600,
                             ),
                           ),
                         ),

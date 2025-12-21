@@ -1,5 +1,4 @@
 import 'package:cosmetics/core/style/app_colors.dart';
-import 'package:cosmetics/core/style/text_styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormFiled extends StatelessWidget {
@@ -21,7 +20,7 @@ class CustomTextFormFiled extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       validator: validator,
-      
+
       onTapOutside: (event) => FocusManager.instance.primaryFocus!.unfocus(),
 
       cursorColor: AppColors.borderColor,
@@ -29,9 +28,9 @@ class CustomTextFormFiled extends StatelessWidget {
       obscureText: obscureText,
       decoration: InputDecoration(
         isDense: true,
-        label: Text(label, style: TextStyles.textStyle14),
+        label: Text(label, style: Theme.of(context).textTheme.titleSmall),
         suffixIcon: suffixIcon,
-         enabledBorder: OutlineInputBorder(
+        enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(color: AppColors.borderColor, width: 0.5),
         ),

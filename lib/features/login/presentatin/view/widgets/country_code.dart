@@ -1,5 +1,4 @@
 import 'package:cosmetics/core/style/app_colors.dart';
-import 'package:cosmetics/core/style/text_styles.dart';
 import 'package:flutter/material.dart';
 
 class CountryCodeDropdown extends StatefulWidget {
@@ -15,15 +14,17 @@ class CountryCodeDropdownState extends State<CountryCodeDropdown> {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 8),
       value: selectedCode,
       alignment: Alignment.center,
-      style: TextStyles.textStyle12,
+      style: Theme.of(context).textTheme.titleSmall!.copyWith(
+        fontSize: 12,
+      ),
       icon: Transform.rotate(
         angle: 300,
         child: Icon(
           Icons.arrow_back_ios_new,
-          size: 14,
+          size: 13,
           color: AppColors.hint_text,
         ),
       ),

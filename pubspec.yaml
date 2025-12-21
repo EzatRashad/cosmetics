@@ -12,6 +12,7 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.8
   flutter_svg :
+  pin_code_fields :
 
 dev_dependencies:
   flutter_test:
@@ -26,9 +27,13 @@ flutter:
     - assets/images/
 
   fonts:
-    - family: Segoe UI
+    - family: Segoe
       fonts:
         - asset: assets/fonts/segoe/Segoe-UI.ttf
+    - family: montserrat
+      fonts:
+        - asset: assets/fonts/montserrat/Montserrat-Regular.ttf
+        
 
         
 

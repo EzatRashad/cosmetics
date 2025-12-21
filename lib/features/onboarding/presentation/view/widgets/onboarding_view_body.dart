@@ -1,4 +1,3 @@
-import 'package:cosmetics/core/style/text_styles.dart';
 import 'package:cosmetics/core/utils/app_images.dart';
 import 'package:cosmetics/core/utils/navigate.dart';
 import 'package:cosmetics/core/utils/utils.dart';
@@ -40,71 +39,74 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          children: [
-            TextButton(
-              onPressed: () {},
-              child: Align(
-                alignment: Alignment.topRight,
-                child: Text(
-                  "Skip",
-                  style: TextStyles.textStyle16Regular.copyWith(
-                    color: Color(0xff434C6D),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 41),
+          child: Column(
+            children: [
+              TextButton(
+                onPressed: () {},
+                child: Align(
+                  alignment: Alignment.topRight,
+                  child: Text(
+                    "Skip",
+                    style: Theme.of(context).textTheme.titleMedium,
                   ),
                 ),
               ),
-            ),
-            Expanded(child: OnboardingPageView(pageController: pageController)),
-            currentPage == 2
-                ? Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 50),
-                    child: GestureDetector(
+              Expanded(
+                child: OnboardingPageView(pageController: pageController),
+              ),
+              currentPage == 2
+                  ? Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      child: GestureDetector(
+                        onTap: () {
+                          context.nextScreen(LoginView(), replacment: true);
+                        },
+                        child: Container(
+                          height: 50,
+                          width: 200,
+                          margin: const EdgeInsets.only(bottom: 40),
+                          decoration: BoxDecoration(
+                            color: Color(0xff434C6D),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: const Center(
+                            child: Text(
+                              "Get Started",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                      ),
+                    )
+                  : GestureDetector(
                       onTap: () {
-                        context.nextScreen(LoginView(), replacment: true);
+                        if (currentPage < 2) {
+                          pageController.nextPage(
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.easeIn,
+                          );
+                        }
                       },
                       child: Container(
                         height: 50,
-                        width: 200,
+                        width: 50,
                         margin: const EdgeInsets.only(bottom: 40),
                         decoration: BoxDecoration(
                           color: Color(0xff434C6D),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: const Center(
-                          child: Text(
-                            "Get Started",
-                            style: TextStyle(color: Colors.white),
+                          child: Image(
+                            image: AssetImage(Assets.assetsImagesForward),
                           ),
                         ),
                       ),
                     ),
-                  )
-                : GestureDetector(
-                    onTap: () {
-                      if (currentPage < 2) {
-                        pageController.nextPage(
-                          duration: const Duration(milliseconds: 300),
-                          curve: Curves.easeIn,
-                        );
-                      }
-                    },
-                    child: Container(
-                      height: 50,
-                      width: 50,
-                      margin: const EdgeInsets.only(bottom: 40),
-                      decoration: BoxDecoration(
-                        color: Color(0xff434C6D),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: const Center(
-                        child: Image(
-                          image: AssetImage(Assets.assetsImagesForward),
-                        ),
-                      ),
-                    ),
-                  ),
-            50.ph,
-          ],
+              50.ph,
+            ],
+          ),
         ),
       ),
     );

@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 class AppColors {
   static const Color primary = Color(0xFFD75D72);
   static const Color secondary = Color(0xFF434C6D);
-    static const Color hint_text = Color(0xFF8E8EA9);
-
-  static const Color background = Color(0xFFD9D9D9);
-  static const Color textPrimary = Color(0xFF333333);
-  static const Color textSecondary = Color(0xFF757575);
-   static const Color borderColor = Color(0xFF5A6690);
+  static const Color hint_text = Color(0xFF8E8EA9);
+  static const Color dark_gray = Color(0xFF101010);
+  static const Color background = Color(0xFFD9D9D9); 
+  static const Color borderColor = Color(0xFF5A6690);
   static const Color error = Color(0xFFF44336);
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF000000);

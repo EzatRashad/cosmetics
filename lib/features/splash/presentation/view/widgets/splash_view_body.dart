@@ -14,8 +14,7 @@ class SplashViewBody extends StatefulWidget {
 class _SplashViewBodyState extends State<SplashViewBody>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  late Animation<double> _fadeAnimation;
-  late Animation<double> _scaleAnimation;
+  late Animation<double> _animation;
 
   @override
   void initState() {
@@ -26,17 +25,13 @@ class _SplashViewBodyState extends State<SplashViewBody>
       duration: const Duration(milliseconds: 600),
     );
 
-    _fadeAnimation = CurvedAnimation(parent: _controller, curve: Curves.easeIn);
+    _animation = CurvedAnimation(parent: _controller, curve: Curves.easeInOut);
 
-    _scaleAnimation = Tween<double>(
-      begin: 0.8,
-      end: 1.0,
-    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
-
-    _controller.forward();
+     
+     _controller.forward(); 
 
     Future.delayed(const Duration(seconds: 1), () {
-      context.nextScreen(OnboardingView(), replacment: true);
+      context.nextScreen(const OnboardingView(), replacment: true);
     });
   }
 
@@ -52,12 +47,12 @@ class _SplashViewBodyState extends State<SplashViewBody>
       backgroundColor: AppColors.background,
       body: Center(
         child: FadeTransition(
-          opacity: _fadeAnimation,
+          opacity: _animation,
           child: ScaleTransition(
-            scale: _scaleAnimation,
+            scale: Tween<double>(begin: 0.85, end: 1.0).animate(_animation),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 Image(
                   image: AssetImage(Assets.assetsImagesSplashLogo),
                   width: 140,

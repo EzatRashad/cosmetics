@@ -1,5 +1,4 @@
 import 'package:cosmetics/core/style/app_colors.dart';
-import 'package:cosmetics/core/style/text_styles.dart';
 import 'package:cosmetics/core/utils/app_images.dart';
 import 'package:cosmetics/core/utils/navigate.dart';
 import 'package:cosmetics/core/utils/utils.dart';
@@ -25,6 +24,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context).textTheme;
     return SafeArea(
       child: Scaffold(
         body: Padding(
@@ -38,13 +38,11 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                     48.ph,
                     Image.asset(Assets.assetsImagesLoginLogo, height: 227),
                     25.ph,
-                    Text("Login Now", style: TextStyles.textStyle24Bold),
+                    Text("Login Now", style: theme.titleLarge),
                     14.ph,
                     Text(
                       "Please enter the details below to continue",
-                      style: TextStyles.textStyle14.copyWith(
-                        color: AppColors.hint_text,
-                      ),
+                      style: theme.titleSmall,
                     ),
                     25.ph,
                     Row(
@@ -80,9 +78,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                       alignment: Alignment.centerRight,
                       child: Text(
                         "Forget Password?",
-                        style: TextStyles.textStyle12.copyWith(
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.primary,
+                        style: theme.titleSmall!.copyWith(
+                          color: AppColors.error,
+                          fontSize: 12,
                         ),
                       ),
                     ),
@@ -103,9 +101,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                       children: [
                         Text(
                           'Don’t have an account?  ',
-                          style: TextStyles.textStyle12.copyWith(
-                            color: AppColors.secondary,
-                          ),
+                          style: theme.titleSmall!.copyWith(fontSize: 12),
                         ),
                         GestureDetector(
                           onTap: () {
@@ -114,15 +110,15 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                           child: Text(
                             'Register',
                             textAlign: TextAlign.center,
-                            style: TextStyles.textStyle12.copyWith(
+                            style: theme.titleMedium!.copyWith(
+                              fontSize: 12,
                               color: AppColors.primary,
-                              fontWeight: FontWeight.w600,
                             ),
                           ),
                         ),
                       ],
                     ),
-                   ],
+                  ],
                 ),
               ],
             ),

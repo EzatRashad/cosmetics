@@ -1,4 +1,3 @@
-import 'package:cosmetics/core/style/text_styles.dart';
 import 'package:cosmetics/core/utils/utils.dart';
 import 'package:flutter/material.dart';
 
@@ -14,22 +13,19 @@ class OnboardingPageViewItem extends StatelessWidget {
   final String subTitle;
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context).textTheme;
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        
-        Image.asset(image,height: 250,),
+        Image.asset(image, height: 250),
         20.ph,
         Text(
           title,
-          style: TextStyles.textStyle16Bold.copyWith(color: Color(0xff434C6D),),
+          style: theme.titleLarge!.copyWith(fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 15),
-        Text(
-          subTitle,
-          style: TextStyles.textStyle14.copyWith( color: Color(0xff434C6D)),
-          textAlign: TextAlign.center,
-        ),
+        Text(subTitle, style: theme.titleSmall, textAlign: TextAlign.center),
       ],
     );
   }

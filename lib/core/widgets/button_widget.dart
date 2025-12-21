@@ -1,5 +1,4 @@
 import 'package:cosmetics/core/style/app_colors.dart';
-import 'package:cosmetics/core/style/text_styles.dart';
 import 'package:flutter/material.dart';
 
 class ButtonWidget extends StatelessWidget {
@@ -65,9 +64,9 @@ class ButtonWidget extends StatelessWidget {
             child ??
             Text(
               title,
-              style: TextStyles.textStyle16SemiBold.copyWith(
-                color: textColor ?? AppColors.black,
-              ),
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                color: AppColors.white,
+              )
             ),
       ),
     );
