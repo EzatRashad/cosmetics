@@ -1,0 +1,55 @@
+import 'package:cosmetics/core/utils/utils.dart';
+import 'package:cosmetics/features/home/presentation/view/widgets/home_search_field.dart';
+import 'package:cosmetics/features/home/presentation/view/widgets/product_item.dart';
+import 'package:flutter/material.dart';
+
+import 'home_banner.dart';
+
+class HomeViewBody extends StatelessWidget {
+  const HomeViewBody({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context).textTheme;
+    return SafeArea(
+      child: Scaffold(
+        body: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 13),
+
+          child: CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    12.ph,
+
+                    const HomeSearchField(),
+                    15.ph,
+                    HomeBanner(),
+                    26.ph,
+                    Text(
+                      "Top rated products",
+                      style: theme.titleLarge!.copyWith(fontSize: 16),
+                    ),
+                    14.ph,
+                  ],
+                ),
+              ),
+              SliverGrid.builder(
+                itemCount: 6,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 163 / 214,
+                  mainAxisSpacing: 8,
+                  crossAxisSpacing: 16,
+                ),
+                itemBuilder: (context, index) => ProductItem(),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

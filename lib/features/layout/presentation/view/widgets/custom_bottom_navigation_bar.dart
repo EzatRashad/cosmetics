@@ -19,7 +19,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       width: double.infinity,
       height: 64,
       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 22),
-      margin: EdgeInsets.symmetric(horizontal: 13, vertical: 10),
+      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       decoration: const ShapeDecoration(
         color: Colors.white,
         shape: RoundedRectangleBorder(

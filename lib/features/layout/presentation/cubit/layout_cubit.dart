@@ -1,3 +1,4 @@
+import 'package:cosmetics/features/home/presentation/view/widgets/home_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -9,7 +10,7 @@ class LayoutCubit extends Cubit<LayoutStates> {
   static LayoutCubit get(context) => BlocProvider.of(context);
   int selectedIndex = 0;
   List<Widget> screens = [
-   Scaffold(body: Center(child: Text("1"),),),
+   Scaffold(body: HomeViewBody()),
     Scaffold(body: Center(child: Text("2"))),
     Scaffold(body: Center(child: Text("3"))),
     Scaffold(body: Center(child: Text("4"))),

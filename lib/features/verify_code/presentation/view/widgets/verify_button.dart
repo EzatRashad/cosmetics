@@ -1,7 +1,9 @@
 import 'package:cosmetics/core/style/app_colors.dart';
 import 'package:cosmetics/core/utils/app_images.dart';
+import 'package:cosmetics/core/utils/navigate.dart';
 import 'package:cosmetics/core/utils/utils.dart';
 import 'package:cosmetics/core/widgets/button_widget.dart';
+import 'package:cosmetics/features/layout/presentation/view/layout_view.dart';
 import 'package:flutter/material.dart';
 
 class VerifyButton extends StatelessWidget {
@@ -55,7 +57,9 @@ class VerifyButton extends StatelessWidget {
                     height: 56,
                     radius: 24,
                     title: "Go to home",
-                    onTap: () {},
+                    onTap: () {
+                      context.nextScreen(LayoutView(),remove: true);
+                    },
                   ),
                 ],
               ),

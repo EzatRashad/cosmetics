@@ -1,6 +1,6 @@
 
 import 'package:cosmetics/core/style/app_theme.dart';
-import 'package:cosmetics/features/layout/presentation/view/layout_view.dart';
+import 'package:cosmetics/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: AppTheme.currentTheme,
 
-       home: LayoutView(),
+       home: SplashView(),
     );
   }
 }
