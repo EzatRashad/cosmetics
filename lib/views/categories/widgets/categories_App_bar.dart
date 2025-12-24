@@ -14,56 +14,9 @@ class CategoriesAppBar extends StatelessWidget {
       elevation: 0,
       floating: true,
       snap: true,
-      expandedHeight: 150.h,
-      flexibleSpace: FlexibleSpaceBar(
-        background: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 13.w),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              24.ph,
-              Text('Categories', style: Theme.of(context).textTheme.titleLarge),
-              24.ph,
-              Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color(0x0A000000),
-                      blurRadius: 9.r,
-                      offset: Offset(0, 2),
-                      spreadRadius: 0,
-                    ),
-                  ],
-                ),
-                child: TextField(
-                  keyboardType: TextInputType.text,
-                  decoration: InputDecoration(
-                    hint: Text(
-                      "Search",
-                      style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    suffixIcon: SizedBox(
-                      width: 20.w,
-                      child: Center(
-                        child: CustomImageWidget(imageName: "search.svg"),
-                      ),
-                    ),
-                    hintStyle: Theme.of(context).textTheme.titleSmall,
-                    filled: true,
-                    fillColor: AppColors.background,
-                    border: buildBorder(),
-                    enabledBorder: buildBorder(),
-                    focusedBorder: buildBorder(),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
+      actions: [CustomImageWidget(imageName: "card.svg")],
+      title: Text('My Cart', style: Theme.of(context).textTheme.titleLarge),
+      centerTitle: true,
     );
   }
 }

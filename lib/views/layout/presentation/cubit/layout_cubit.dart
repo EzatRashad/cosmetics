@@ -1,4 +1,6 @@
- import 'package:cosmetics/views/home/widgets/home_view_body.dart';
+ import 'package:cosmetics/views/cart/cart_view.dart';
+import 'package:cosmetics/views/categories/categories_view.dart';
+import 'package:cosmetics/views/home/widgets/home_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,8 +13,8 @@ class LayoutCubit extends Cubit<LayoutStates> {
   int selectedIndex = 0;
   List<Widget> screens = [
    Scaffold(body: HomeViewBody()),
-    Scaffold(body: Center(child: Text("2"))),
-    Scaffold(body: Center(child: Text("3"))),
+    Scaffold(body: CategoriesView()),
+    Scaffold(body:CartView()),
     Scaffold(body: Center(child: Text("4"))),
   ];
 
