@@ -111,9 +111,7 @@ class CartViewBody extends StatelessWidget {
                                         ),
                                         Text(
                                           '1',
-                                          style: theme.titleLarge!.copyWith(
-                                            fontSize: 12.sp,
-                                          ),
+                                          style: theme.titleMedium,
                                         ),
                                         CustomImageWidget(
                                           imageName: "plus.svg",
