@@ -1,5 +1,6 @@
 import 'package:cosmetics/core/style/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CountryCodeDropdown extends StatefulWidget {
   const CountryCodeDropdown({super.key});
@@ -14,17 +15,17 @@ class CountryCodeDropdownState extends State<CountryCodeDropdown> {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField(
-      padding: const EdgeInsets.symmetric(horizontal: 8),
+      padding: EdgeInsets.symmetric(horizontal: 8.w),
       value: selectedCode,
       alignment: Alignment.center,
       style: Theme.of(context).textTheme.titleSmall!.copyWith(
-        fontSize: 12,
+        fontSize: 12.sp,
       ),
       icon: Transform.rotate(
         angle: 300,
         child: Icon(
           Icons.arrow_back_ios_new,
-          size: 13,
+          size: 13.sp,
           color: AppColors.hint_text,
         ),
       ),
@@ -32,19 +33,18 @@ class CountryCodeDropdownState extends State<CountryCodeDropdown> {
       decoration: InputDecoration(
         isDense: true,
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: AppColors.borderColor, width: 1.5),
+          borderRadius: BorderRadius.circular(12.r),
+          borderSide: BorderSide(color: AppColors.borderColor, width: 1.5.w),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-
-          borderSide: BorderSide(color: AppColors.borderColor, width: 1.5),
+          borderRadius: BorderRadius.circular(12.r),
+          borderSide: BorderSide(color: AppColors.borderColor, width: 1.5.w),
         ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(width: .5),
+          borderRadius: BorderRadius.circular(12.r),
+          borderSide: BorderSide(width: .5.w),
         ),
-        contentPadding: EdgeInsets.symmetric(horizontal: 5, vertical: 14),
+        contentPadding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 10.h),
       ),
       items: const [
         DropdownMenuItem(value: '+20', child: Text('+20')),

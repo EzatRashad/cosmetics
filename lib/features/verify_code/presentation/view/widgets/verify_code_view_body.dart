@@ -1,8 +1,9 @@
-import 'package:cosmetics/core/utils/app_images.dart';
 import 'package:cosmetics/core/utils/utils.dart';
+import 'package:cosmetics/core/widgets/custom_image_widget.dart';
 import 'package:cosmetics/features/verify_code/presentation/view/widgets/verify_button.dart';
 import 'package:cosmetics/features/verify_code/presentation/view/widgets/verify_code_fields.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/style/app_colors.dart';
 
 class VerifyCodeViewBody extends StatefulWidget {
@@ -55,11 +56,11 @@ class _VerifyCodeViewBodyState extends State<VerifyCodeViewBody> {
         body: ListView(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 38),
+              padding: EdgeInsets.symmetric(horizontal: 38.w),
               child: Column(
                 children: [
                   40.ph,
-                  Image.asset(Assets.assetsImagesSplashLogo, width: 67),
+                  CustomImageWidget(imageName: "splash_logo.png", width: 67.w),
                   40.ph,
                   Text("Verify Code", style: theme.titleLarge),
                   40.ph,
@@ -73,7 +74,7 @@ class _VerifyCodeViewBodyState extends State<VerifyCodeViewBody> {
                         ),
                         TextSpan(
                           text: "+20 1022658997.",
-                          style: theme.titleMedium?.copyWith(fontSize: 14),
+                          style: theme.titleMedium?.copyWith(fontSize: 14.sp),
                         ),
                         TextSpan(
                           text: "Enter the code in the box below to continue.",
@@ -89,7 +90,7 @@ class _VerifyCodeViewBodyState extends State<VerifyCodeViewBody> {
                       "Edit the number",
                       style: theme.titleMedium?.copyWith(
                         color: AppColors.primary,
-                        fontSize: 12,
+                        fontSize: 12.sp,
                       ),
                     ),
                   ),
@@ -107,7 +108,7 @@ class _VerifyCodeViewBodyState extends State<VerifyCodeViewBody> {
                     children: [
                       Text(
                         'Didn’t receive a code? ',
-                        style: theme.titleMedium!.copyWith(fontSize: 12),
+                        style: theme.titleMedium!.copyWith(fontSize: 12.sp),
                       ),
                       GestureDetector(
                         onTap: () {},
@@ -115,7 +116,7 @@ class _VerifyCodeViewBodyState extends State<VerifyCodeViewBody> {
                           'Resend',
                           textAlign: TextAlign.center,
                           style: theme.titleMedium!.copyWith(
-                            fontSize: 12,
+                            fontSize: 12.sp,
                             color: AppColors.primary.withValues(alpha: .5),
                           ),
                         ),
@@ -123,7 +124,7 @@ class _VerifyCodeViewBodyState extends State<VerifyCodeViewBody> {
                       Spacer(),
                       Text(
                         "0:36",
-                        style: theme.titleMedium!.copyWith(fontSize: 12),
+                        style: theme.titleMedium!.copyWith(fontSize: 12.sp),
                       ),
                     ],
                   ),

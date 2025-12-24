@@ -1,5 +1,6 @@
 import 'package:cosmetics/core/style/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class VerifyCodeFields extends StatelessWidget {
   final List<TextEditingController> controllers;
@@ -20,8 +21,8 @@ class VerifyCodeFields extends StatelessWidget {
       children: List.generate(
         4,
         (index) => SizedBox(
-          width: 45,
-          height: 45,
+          width: 45.w,
+          height: 45.h,
           child: TextFormField(
             controller: controllers[index],
             focusNode: focusNodes[index],
@@ -31,28 +32,28 @@ class VerifyCodeFields extends StatelessWidget {
             cursorColor: AppColors.dark_gray,
             onTapOutside: (_) => FocusManager.instance.primaryFocus?.unfocus(),
             onChanged: (value) => onCodeChanged(value, index),
-            style: Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 16),
+            style: Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 16.sp),
             decoration: InputDecoration(
               counterText: '',
               hintText: "_",
               
               hintStyle: TextStyle(
-                fontSize: 16,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.bold,
                 color: AppColors.hint_text
 
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: const BorderSide(
+                borderRadius: BorderRadius.circular(12.r),
+                borderSide:   BorderSide(
                   color: AppColors.primary,
-                  width: 1.5,
+                  width: 1.5.w,
                 ),
               ),
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(12.r),
                 borderSide: BorderSide(
-                  width: 1.5,
+                  width: 1.5.w,
                   color: controllers[index].text.isNotEmpty
                       ? AppColors.primary
                       : Color(0xff898992).withValues(alpha: .5),

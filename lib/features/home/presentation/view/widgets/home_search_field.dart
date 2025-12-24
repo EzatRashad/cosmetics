@@ -1,7 +1,7 @@
 import 'package:cosmetics/core/style/app_colors.dart';
-import 'package:cosmetics/core/utils/app_images.dart';
+import 'package:cosmetics/core/widgets/custom_image_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart'; 
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeSearchField extends StatelessWidget {
   const HomeSearchField({super.key});
@@ -9,11 +9,11 @@ class HomeSearchField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
             color: Color(0x0A000000),
-            blurRadius: 9,
+            blurRadius: 9.r,
             offset: Offset(0, 2),
             spreadRadius: 0,
           ),
@@ -22,10 +22,16 @@ class HomeSearchField extends StatelessWidget {
       child: TextField(
         keyboardType: TextInputType.text,
         decoration: InputDecoration(
-          hint: Text("Search",style:Theme.of(context).textTheme.titleSmall!.copyWith(fontSize: 12,fontWeight: FontWeight.w500)),
+          hint: Text(
+            "Search",
+            style: Theme.of(context).textTheme.titleSmall!.copyWith(
+              fontSize: 12.sp,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
           suffixIcon: SizedBox(
-            width: 20,
-            child: Center(child: SvgPicture.asset(Assets.assetsIconsSearch)),
+            width: 20.w,
+            child: Center(child: CustomImageWidget(imageName: "search.svg")),
           ),
           hintStyle: Theme.of(context).textTheme.titleSmall,
           filled: true,
@@ -40,8 +46,8 @@ class HomeSearchField extends StatelessWidget {
 
   OutlineInputBorder buildBorder() {
     return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(20),
-      borderSide: const BorderSide(width: 1, color: Color(0xffB3B3C1)),
+      borderRadius: BorderRadius.circular(20.r),
+      borderSide: BorderSide(width: 1.w, color: Color(0xffB3B3C1)),
     );
   }
 }

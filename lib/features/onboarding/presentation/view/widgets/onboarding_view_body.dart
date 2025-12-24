@@ -1,9 +1,10 @@
-import 'package:cosmetics/core/utils/app_images.dart';
 import 'package:cosmetics/core/utils/navigate.dart';
 import 'package:cosmetics/core/utils/utils.dart';
+import 'package:cosmetics/core/widgets/custom_image_widget.dart';
 import 'package:cosmetics/features/login/presentatin/view/login_view.dart';
 import 'package:cosmetics/features/onboarding/presentation/view/widgets/onboarding_page_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OnboardingViewBody extends StatefulWidget {
   const OnboardingViewBody({super.key});
@@ -40,7 +41,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 41),
+          padding: EdgeInsets.symmetric(horizontal: 41.w),
           child: Column(
             children: [
               TextButton(
@@ -58,18 +59,18 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
               ),
               currentPage == 2
                   ? Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      padding: EdgeInsets.symmetric(horizontal: 50.w),
                       child: GestureDetector(
                         onTap: () {
                           context.nextScreen(LoginView(), replacment: true);
                         },
                         child: Container(
-                          height: 50,
-                          width: 200,
-                          margin: const EdgeInsets.only(bottom: 40),
+                          height: 50.h,
+                          width: 200.w,
+                          margin: EdgeInsets.only(bottom: 40.h),
                           decoration: BoxDecoration(
                             color: Color(0xff434C6D),
-                            borderRadius: BorderRadius.circular(12),
+                            borderRadius: BorderRadius.circular(12.r),
                           ),
                           child: const Center(
                             child: Text(
@@ -90,17 +91,15 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                         }
                       },
                       child: Container(
-                        height: 50,
-                        width: 50,
-                        margin: const EdgeInsets.only(bottom: 40),
+                        height: 50.h,
+                        width: 50.w,
+                        margin: EdgeInsets.only(bottom: 40.h),
                         decoration: BoxDecoration(
                           color: Color(0xff434C6D),
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(12.r),
                         ),
                         child: const Center(
-                          child: Image(
-                            image: AssetImage(Assets.assetsImagesForward),
-                          ),
+                          child: CustomImageWidget(imageName: "forward.png"),
                         ),
                       ),
                     ),

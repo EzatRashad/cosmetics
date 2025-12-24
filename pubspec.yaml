@@ -15,6 +15,7 @@ dependencies:
   pin_code_fields :
   flutter_bloc:
   skeletonizer:
+  flutter_screenutil :
 
 dev_dependencies:
   flutter_test:

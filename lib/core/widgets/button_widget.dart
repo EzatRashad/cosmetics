@@ -1,5 +1,6 @@
 import 'package:cosmetics/core/style/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ButtonWidget extends StatelessWidget {
   final String title;
@@ -101,7 +102,7 @@ class TextButtonWidget extends StatelessWidget {
         style: TextStyle(
           fontWeight: fontweight ?? FontWeight.w500,
           fontFamily: fontFamily ?? "Almarai",
-          fontSize: size ?? 16,
+          fontSize: size ?? 16.sp,
           color: color ?? AppColors.white,
         ),
       ),

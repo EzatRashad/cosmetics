@@ -1,6 +1,7 @@
+import 'package:cosmetics/core/widgets/custom_image_widget.dart';
 import 'package:cosmetics/features/layout/domain/bottom_navigation_bar_entity.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NaivgationBarItem extends StatelessWidget {
   const NaivgationBarItem({
@@ -14,7 +15,15 @@ class NaivgationBarItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return isSelected
-        ? SvgPicture.asset(bottomNavigationBarEntity.activeImage,)
-        : SvgPicture.asset(bottomNavigationBarEntity.inActiveImage);
+        ? CustomImageWidget(
+            width: 20.w,
+            height: 20.h,
+            imageName: bottomNavigationBarEntity.activeImage,
+          )
+        : CustomImageWidget(
+            width: 20.w,
+            height: 20.h,
+            imageName: bottomNavigationBarEntity.inActiveImage,
+          );
   }
 }

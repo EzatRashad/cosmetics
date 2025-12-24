@@ -1,4 +1,3 @@
-import 'package:cosmetics/core/utils/app_images.dart';
 import 'package:cosmetics/features/onboarding/presentation/view/widgets/onboarding_page_view_item.dart';
 import 'package:flutter/material.dart';
 
@@ -12,19 +11,19 @@ class OnboardingPageView extends StatelessWidget {
       controller: pageController,
       children: [
         OnboardingPageViewItem(
-          image: Assets.assetsImagesOnBoradingOne,
+          image: "on_borading_one.png",
           title: "WELCOME",
           subTitle:
               "Makeup has the power to transform your mood and empowers you to be a more confident person.",
         ),
         OnboardingPageViewItem(
-          image: Assets.assetsImagesOnBoradingTwo,
+          image: "on_borading_two.png",
           title: "SEARCH & PICK",
           subTitle:
               "We have dedicated set of products and routines hand picked for every skin type.",
         ),
         OnboardingPageViewItem(
-          image: Assets.assetsImagesOnBoradingThree,
+          image: "on_borading_three.png",
           title: "PUCH NOTIFICATIONS",
           subTitle:
               "Allow notifications for new makeup & cosmetics offers.",

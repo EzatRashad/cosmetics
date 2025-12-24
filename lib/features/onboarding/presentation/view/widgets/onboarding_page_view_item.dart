@@ -1,5 +1,7 @@
 import 'package:cosmetics/core/utils/utils.dart';
+import 'package:cosmetics/core/widgets/custom_image_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OnboardingPageViewItem extends StatelessWidget {
   const OnboardingPageViewItem({
@@ -18,13 +20,13 @@ class OnboardingPageViewItem extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.asset(image, height: 250),
+        CustomImageWidget(imageName: image, height: 250.h),
         20.ph,
         Text(
           title,
           style: theme.titleLarge!.copyWith(fontWeight: FontWeight.bold),
         ),
-        const SizedBox(height: 15),
+        15.ph,
         Text(subTitle, style: theme.titleSmall, textAlign: TextAlign.center),
       ],
     );

@@ -1,7 +1,6 @@
+import 'package:cosmetics/core/widgets/custom_image_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-
-import '../../../../../core/utils/app_images.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart'; 
 
 class HomeBanner extends StatelessWidget {
   const HomeBanner({super.key});
@@ -18,15 +17,15 @@ class HomeBanner extends StatelessWidget {
 
           child: Image.network(
             width: double.infinity,
-            height: 320,
+            height: 320.h,
             fit: BoxFit.fill,
             "https://images.pexels.com/photos/2866796/pexels-photo-2866796.jpeg",
           ),
         ),
         Container(
           width: double.infinity,
-          height: 151,
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+          height: 151.h,
+          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
           color: Color(0xffE9DCD3).withValues(alpha: .6),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,27 +38,27 @@ class HomeBanner extends StatelessWidget {
                       Text(
                         "50% OFF DISCOUNT ",
                         style: theme.titleLarge!.copyWith(
-                          fontSize: 16,
+                          fontSize: 16.sp,
                           color: Color(0xff62322D),
                         ),
                       ),
                       Text(
                         "CUPON CODE : 125865",
                         style: theme.titleLarge!.copyWith(
-                          fontSize: 16,
+                          fontSize: 16.sp,
                           color: Color(0xff62322D),
                         ),
                       ),
                     ],
                   ),
                   Spacer(),
-                  SvgPicture.asset(Assets.assetsIconsOffer),
+                  CustomImageWidget(imageName: "offer.svg"),
                 ],
               ),
               Spacer(),
               Row(
                 children: [
-                  SvgPicture.asset(Assets.assetsIconsOffer),
+                  CustomImageWidget(imageName: "offer.svg"),
                   Spacer(),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,14 +66,14 @@ class HomeBanner extends StatelessWidget {
                       Text(
                         "Hurry up! ",
                         style: theme.titleLarge!.copyWith(
-                          fontSize: 16,
+                          fontSize: 16.sp,
                           color: Color(0xff434C6D),
                         ),
                       ),
                       Text(
                         " Skin care only !",
                         style: theme.titleLarge!.copyWith(
-                          fontSize: 16,
+                          fontSize: 16.sp,
                           color: Color(0xff434C6D),
                         ),
                       ),

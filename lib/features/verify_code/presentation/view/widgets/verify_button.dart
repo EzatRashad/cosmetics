@@ -1,10 +1,11 @@
 import 'package:cosmetics/core/style/app_colors.dart';
-import 'package:cosmetics/core/utils/app_images.dart';
 import 'package:cosmetics/core/utils/navigate.dart';
 import 'package:cosmetics/core/utils/utils.dart';
 import 'package:cosmetics/core/widgets/button_widget.dart';
+import 'package:cosmetics/core/widgets/custom_image_widget.dart';
 import 'package:cosmetics/features/layout/presentation/view/layout_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class VerifyButton extends StatelessWidget {
   const VerifyButton({super.key});
@@ -14,9 +15,9 @@ class VerifyButton extends StatelessWidget {
     final theme = Theme.of(context).textTheme;
 
     return ButtonWidget(
-      width: 250,
-      height: 56,
-      radius: 24,
+      width: 250.w,
+      height: 56.h,
+      radius: 24.r,
       title: "Done",
       onTap: () {
         showDialog(
@@ -24,20 +25,19 @@ class VerifyButton extends StatelessWidget {
           builder: (BuildContext context) {
             return AlertDialog(
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(12.r),
               ),
-              contentPadding: const EdgeInsets.symmetric(
-                vertical: 30,
-                horizontal: 16,
+              contentPadding:   EdgeInsets.symmetric(
+                vertical: 30.h,
+                horizontal: 16.w,
               ),
               content: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Image.asset(
-                    Assets.assetsImagesDialogCheck,
-
-                    width: 100,
-                    height: 100,
+                  CustomImageWidget(
+                    imageName: "dialog_check.png",
+                    width: 100.w,
+                    height: 100.h,
                   ),
                   26.ph,
 
@@ -53,12 +53,12 @@ class VerifyButton extends StatelessWidget {
                   ),
                   23.ph,
                   ButtonWidget(
-                    width: 250,
-                    height: 56,
-                    radius: 24,
+                    width: 250.w,
+                    height: 56.h,
+                    radius: 24.r,
                     title: "Go to home",
                     onTap: () {
-                      context.nextScreen(LayoutView(),remove: true);
+                      context.nextScreen(LayoutView(), remove: true);
                     },
                   ),
                 ],

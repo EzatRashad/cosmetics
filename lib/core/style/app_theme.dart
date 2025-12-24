@@ -1,5 +1,6 @@
 import 'package:cosmetics/core/style/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppTheme {
   static bool dTheme = false;
@@ -28,19 +29,19 @@ class AppTheme {
         color: AppColors.secondary,
         fontWeight: FontWeight.w700,
         fontFamily: "montserrat",
-        fontSize: 24,
+        fontSize: 24.sp,
       ),
       titleMedium: TextStyle(
         color: AppColors.secondary,
         fontWeight: FontWeight.w600,
         fontFamily: "montserrat",
-        fontSize: 16,
+        fontSize: 16.sp,
       ),
       titleSmall: TextStyle(
         color: AppColors.hint_text,
         fontWeight: FontWeight.normal,
         fontFamily: "montserrat",
-        fontSize: 14,
+        fontSize: 14.sp,
       ),
     ),
   );
@@ -68,19 +69,19 @@ class AppTheme {
         color: AppColors.white,
         fontFamily: "montserrat",
         fontWeight: FontWeight.w700,
-        fontSize: 24,
+        fontSize: 24.sp,
       ),
       titleMedium: TextStyle(
         color: AppColors.white,
         fontFamily: "montserrat",
         fontWeight: FontWeight.w600,
-        fontSize: 18,
+        fontSize: 18.sp,
       ),
       titleSmall: TextStyle(
         color: AppColors.hint_text,
         fontFamily: "montserrat",
         fontWeight: FontWeight.w400,
-        fontSize: 14,
+        fontSize: 14.sp,
       ),
     ),
   );

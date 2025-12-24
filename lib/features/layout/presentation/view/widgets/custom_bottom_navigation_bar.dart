@@ -1,5 +1,6 @@
 import 'package:cosmetics/features/layout/domain/bottom_navigation_bar_entity.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'naivation_bar_item.dart';
 
@@ -17,13 +18,13 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 64,
-      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 22),
-      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-      decoration: const ShapeDecoration(
+      height: 64.h,
+      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 22.h),
+      margin: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
+      decoration:   ShapeDecoration(
         color: Colors.white,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(30)),
+          borderRadius: BorderRadius.all(Radius.circular(30.r)),
         ),
         shadows: [
           BoxShadow(

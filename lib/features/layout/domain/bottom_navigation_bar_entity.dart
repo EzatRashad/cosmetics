@@ -1,4 +1,3 @@
-import '../../../../core/utils/app_images.dart';
 
 class BottomNavigationBarEntity {
   final String activeImage, inActiveImage;
@@ -11,19 +10,19 @@ class BottomNavigationBarEntity {
 
 List<BottomNavigationBarEntity> get bottomNavigationBarItems => [
       BottomNavigationBarEntity(
-          activeImage: Assets.assetsIconsActiveHome,
-          inActiveImage: Assets.assetsIconsHome,
+          activeImage: "active_home.svg",
+          inActiveImage: "home.svg",
          ),
       BottomNavigationBarEntity(
-          activeImage: Assets.assetsIconsActiveCategories,
-          inActiveImage: Assets.assetsIconsCategories,
+          activeImage: "active_categories.svg",
+          inActiveImage: "categories.svg",
          ),
       BottomNavigationBarEntity(
-          activeImage: Assets.assetsIconsActiveCart,
-          inActiveImage: Assets.assetsIconsCart,
+          activeImage: "active_cart.svg",
+          inActiveImage: "cart.svg",
          ),
       BottomNavigationBarEntity(
-          activeImage: Assets.assetsIconsActiveProfile,
-          inActiveImage: Assets.assetsIconsProfile,
+          activeImage: "active_profile.svg",
+          inActiveImage: "profile.svg",
          ),
     ];

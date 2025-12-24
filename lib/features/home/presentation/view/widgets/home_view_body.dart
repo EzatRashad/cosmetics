@@ -2,6 +2,7 @@ import 'package:cosmetics/core/utils/utils.dart';
 import 'package:cosmetics/features/home/presentation/view/widgets/home_search_field.dart';
 import 'package:cosmetics/features/home/presentation/view/widgets/product_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'home_banner.dart';
 
@@ -14,7 +15,7 @@ class HomeViewBody extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 13),
+          padding: EdgeInsets.symmetric(horizontal: 13.w),
 
           child: CustomScrollView(
             slivers: [
@@ -30,7 +31,7 @@ class HomeViewBody extends StatelessWidget {
                     26.ph,
                     Text(
                       "Top rated products",
-                      style: theme.titleLarge!.copyWith(fontSize: 16),
+                      style: theme.titleLarge!.copyWith(fontSize: 16.sp),
                     ),
                     14.ph,
                   ],
@@ -38,11 +39,11 @@ class HomeViewBody extends StatelessWidget {
               ),
               SliverGrid.builder(
                 itemCount: 6,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate:   SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  childAspectRatio: 163 / 214,
-                  mainAxisSpacing: 8,
-                  crossAxisSpacing: 16,
+                  childAspectRatio: 163.w / 214.h,
+                  mainAxisSpacing: 8.h,
+                  crossAxisSpacing: 16.w,
                 ),
                 itemBuilder: (context, index) => ProductItem(),
               ),
