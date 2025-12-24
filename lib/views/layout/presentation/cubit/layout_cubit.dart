@@ -1,7 +1,7 @@
  import 'package:cosmetics/views/cart/cart_view.dart';
 import 'package:cosmetics/views/categories/categories_view.dart';
 import 'package:cosmetics/views/home/widgets/home_view_body.dart';
-import 'package:cosmetics/views/profile/profile_view.dart';
+import 'package:cosmetics/views/profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
