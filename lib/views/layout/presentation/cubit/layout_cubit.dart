@@ -1,6 +1,7 @@
  import 'package:cosmetics/views/cart/cart_view.dart';
 import 'package:cosmetics/views/categories/categories_view.dart';
 import 'package:cosmetics/views/home/widgets/home_view_body.dart';
+import 'package:cosmetics/views/profile/profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -12,10 +13,11 @@ class LayoutCubit extends Cubit<LayoutStates> {
   static LayoutCubit get(context) => BlocProvider.of(context);
   int selectedIndex = 0;
   List<Widget> screens = [
-   Scaffold(body: HomeViewBody()),
-    Scaffold(body: CategoriesView()),
-    Scaffold(body:CartView()),
-    Scaffold(body: Center(child: Text("4"))),
+   HomeViewBody(),
+   CategoriesView(),
+    CartView(),
+    ProfileView(),
+    
   ];
 
   void changeIndex(int index) {
