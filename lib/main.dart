@@ -1,5 +1,6 @@
 import 'package:cosmetics/core/style/app_theme.dart';
-import 'package:cosmetics/views/categories/categories_view.dart';
+import 'package:cosmetics/views/cart/cart_view.dart';
+import 'package:cosmetics/views/cart/widgets/checkout_view_body.dart';
 import 'package:cosmetics/views/layout/presentation/view/layout_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

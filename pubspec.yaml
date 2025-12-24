@@ -16,6 +16,7 @@ dependencies:
   flutter_bloc:
   skeletonizer:
   flutter_screenutil :
+  google_maps_flutter :
 
 dev_dependencies:
   flutter_test:
