@@ -51,8 +51,20 @@ class CartViewBody extends StatelessWidget {
                             height: 102.h,
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(10.r),
-                              child: CustomImageWidget(
-                                imageName: "home_product.png",
+                              child: Stack(
+                                children: [
+                                  CustomImageWidget(
+                                    imageName: "home_product.png",
+                                  ),
+                                  Positioned(
+                                    top: 6.h,
+                                    left: 6.w,
+                                    child: CustomImageWidget(
+                                      imageName: "out.svg",
+                                      width: 19.w,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
