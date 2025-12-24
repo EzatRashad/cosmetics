@@ -1,5 +1,5 @@
 import 'package:cosmetics/core/style/app_theme.dart';
-import 'package:cosmetics/features/splash/presentation/view/splash_view.dart';
+import 'package:cosmetics/views/categories/categories_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
           darkTheme: AppTheme.darkTheme,
           themeMode: AppTheme.currentTheme,
 
-          home: SplashView(),
+          home: CategoriesView(),
         );
       },
     );
