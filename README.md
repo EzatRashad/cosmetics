@@ -1,4 +1,4 @@
-#Cosmetics E-Commerce App 💄🛍️
+# Cosmetics E-Commerce App 💄🛍️
 
 Cosmetics e-commerce mobile application designed to provide a smooth, modern, and scalable shopping experience.  
 The app follows clean architecture principles and integrates with APIs to deliver real-time data, authentication, and secure payments.
