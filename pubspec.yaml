@@ -51,9 +51,4 @@ flutter_launcher_icons:
   adaptive_icon_foreground: assets/images/app_icon.png
 
 
-flutter_assets:
-  assets_path:
-    - assets/images/
-    - assets/icons/
-  output_path: lib/core/utils/
-  filename: app_images.dart
+ 

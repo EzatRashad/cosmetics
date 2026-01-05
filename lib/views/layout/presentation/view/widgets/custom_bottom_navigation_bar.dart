@@ -1,3 +1,4 @@
+import 'package:cosmetics/core/style/app_colors.dart';
 import 'package:cosmetics/views/layout/domain/bottom_navigation_bar_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -17,21 +18,30 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      clipBehavior: Clip.antiAliasWithSaveLayer,
       width: double.infinity,
       height: 64.h,
       padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 22.h),
       margin: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
-      decoration:   ShapeDecoration(
-        color: Colors.white,
+      decoration: ShapeDecoration(
+        color: Color(0xffD9D9D9),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(30.r)),
         ),
         shadows: [
           BoxShadow(
-            color: Color(0x19000000),
-            blurRadius: 25,
-            offset: Offset(0, -2),
+            blurRadius: 6,
+            offset: Offset(-4, -4),
             spreadRadius: 0,
+            blurStyle: BlurStyle.outer,
+            color: AppColors.black.withValues(alpha: .1),
+          ),
+          BoxShadow(
+            blurRadius: 4,
+            offset: Offset(4, 4),
+            spreadRadius: 0,
+            blurStyle: BlurStyle.outer,
+            color: AppColors.black.withValues(alpha: .1),
           ),
         ],
       ),

@@ -15,23 +15,20 @@ class CountryCodeDropdownState extends State<CountryCodeDropdown> {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField(
-      padding: EdgeInsets.symmetric(horizontal: 8.w),
-      value: selectedCode,
+      initialValue: selectedCode,
+      padding: EdgeInsets.symmetric(vertical: 4.5.h),
       alignment: Alignment.center,
-      style: Theme.of(context).textTheme.titleSmall!.copyWith(
-        fontSize: 12.sp,
-      ),
+      style: Theme.of(context).textTheme.titleSmall!.copyWith(fontSize: 12.sp),
       icon: Transform.rotate(
         angle: 300,
         child: Icon(
           Icons.arrow_back_ios_new,
-          size: 13.sp,
+          size: 16.sp,
           color: AppColors.hint_text,
         ),
       ),
 
       decoration: InputDecoration(
-        isDense: true,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
           borderSide: BorderSide(color: AppColors.borderColor, width: 1.5.w),

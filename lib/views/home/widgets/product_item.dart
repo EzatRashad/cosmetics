@@ -10,7 +10,7 @@ class ProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme=Theme.of(context).textTheme;
+    final theme = Theme.of(context).textTheme;
     return Card(
       child: AspectRatio(
         aspectRatio: 176.w / 237.h,
@@ -34,16 +34,18 @@ class ProductItem extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  AspectRatio(aspectRatio: 161.w / 169.h,
-                      child: CustomImageWidget(imageName: "home_product.png")),
+                  Expanded(
+                    child: AspectRatio(
+                      aspectRatio: 161.w / 169.h,
+                      child: CustomImageWidget(imageName: "home_product.png"),
+                    ),
+                  ),
                   5.ph,
                   Text(
                     "Face tint / lip tint",
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: theme.titleMedium!.copyWith(
-                      fontSize: 14.sp,
-                    ),
+                    style: theme.titleMedium!.copyWith(fontSize: 14.sp),
                   ),
                   5.ph,
                   Text(

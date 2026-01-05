@@ -51,13 +51,10 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(
-                          width: 73.w,
-                          height: 46.h,
-                          child: CountryCodeDropdown(),
-                        ),
+                        Expanded(flex: 1, child: CountryCodeDropdown()),
                         10.pw,
                         Expanded(
+                          flex: 3,
                           child: CustomTextFormFiled(
                             label: "Phone Number",
                             controller: phone,

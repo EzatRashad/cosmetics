@@ -21,6 +21,7 @@ class _LayoutViewBodyState extends State<LayoutViewBody> {
       builder: (context, state) {
         return Scaffold(
           bottomNavigationBar: CustomBottomNavigationBar(
+            
             onItemTapped: (int value) {
               layoutCubit.changeIndex(value);
             },

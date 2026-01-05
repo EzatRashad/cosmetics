@@ -57,9 +57,9 @@ class _OnboardingViewState extends State<OnboardingView> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context).textTheme;
 
-    return SafeArea(
-      child: Scaffold(
-        body: Padding(
+    return Scaffold(
+      body: SafeArea(
+        child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 41.w),
           child: Column(
             children: [
@@ -72,8 +72,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                   child: Text("Skip", style: theme.titleMedium),
                 ),
               ),
-
-              /// PAGE VIEW
+            
               Expanded(
                 child: PageView.builder(
                   controller: pageController,
@@ -105,7 +104,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                   },
                 ),
               ),
-
+            
               /// BUTTON
               GestureDetector(
                 onTap: () {
@@ -138,7 +137,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                   ),
                 ),
               ),
-
+            
               50.ph,
             ],
           ),

@@ -28,7 +28,6 @@ class CustomTextFormFiled extends StatelessWidget {
       controller: controller,
       obscureText: obscureText,
       decoration: InputDecoration(
-        isDense: true,
         label: Text(label, style: Theme.of(context).textTheme.titleSmall),
         suffixIcon: suffixIcon,
         enabledBorder: OutlineInputBorder(

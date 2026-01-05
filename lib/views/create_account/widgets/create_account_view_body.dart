@@ -32,7 +32,7 @@ class _CreateAccountViewBodyState extends State<CreateAccountViewBody> {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding:  EdgeInsets.symmetric(horizontal: 13.w),
+          padding: EdgeInsets.symmetric(horizontal: 13.w),
           child: Form(
             key: _formKey,
             child: ListView(
@@ -40,7 +40,10 @@ class _CreateAccountViewBodyState extends State<CreateAccountViewBody> {
                 Column(
                   children: [
                     40.ph,
-                    CustomImageWidget(imageName: "splash_logo.png", width: 67.w),
+                    CustomImageWidget(
+                      imageName: "splash_logo.png",
+                      width: 67.w,
+                    ),
                     35.ph,
                     Text("Create Account", style: theme.titleLarge),
                     50.ph,
@@ -49,13 +52,10 @@ class _CreateAccountViewBodyState extends State<CreateAccountViewBody> {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(
-                          width: 73.w,
-                          height: 46.h,
-                          child: CountryCodeDropdown(),
-                        ),
+                        Expanded(flex: 1, child: CountryCodeDropdown()),
                         10.pw,
                         Expanded(
+                          flex: 3,
                           child: CustomTextFormFiled(
                             label: "Phone Number",
                             controller: phone,
