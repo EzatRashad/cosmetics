@@ -3,7 +3,7 @@ import 'package:cosmetics/core/widgets/custom_image_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../core/style/app_colors.dart';
+import '../../../../../core/style/app_colors.dart';
 
 class ProductItem extends StatelessWidget {
   const ProductItem({super.key});

@@ -1,5 +1,5 @@
 import 'package:cosmetics/core/style/app_theme.dart';
-import 'package:cosmetics/views/splash_view.dart';
+import 'package:cosmetics/views/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

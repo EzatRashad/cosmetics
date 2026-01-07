@@ -2,8 +2,8 @@ import 'package:cosmetics/core/utils/navigate.dart';
 import 'package:cosmetics/core/utils/utils.dart';
 import 'package:cosmetics/core/widgets/button_widget.dart';
 import 'package:cosmetics/core/widgets/custom_image_widget.dart';
-import 'package:cosmetics/views/cart/checkout_view.dart';
-import 'package:cosmetics/views/categories/widgets/categories_App_bar.dart';
+import 'package:cosmetics/views/layout/pages/cart/checkout_view.dart';
+import 'package:cosmetics/views/layout/pages/categories/widgets/categories_App_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

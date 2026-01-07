@@ -1,7 +1,7 @@
 import 'package:cosmetics/core/style/app_colors.dart';
 import 'package:cosmetics/core/utils/navigate.dart';
 import 'package:cosmetics/core/widgets/custom_image_widget.dart';
-import 'package:cosmetics/views/onboarding_view.dart';
+import 'package:cosmetics/views/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

@@ -1,4 +1,4 @@
-import 'package:cosmetics/views/home/widgets/home_view_body.dart';
+import 'package:cosmetics/views/layout/pages/home/widgets/home_view_body.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {

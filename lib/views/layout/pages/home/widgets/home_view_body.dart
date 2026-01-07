@@ -1,6 +1,6 @@
 import 'package:cosmetics/core/utils/utils.dart';
-import 'package:cosmetics/views/home/widgets/home_search_field.dart';
-import 'package:cosmetics/views/home/widgets/product_item.dart';
+import 'package:cosmetics/views/layout/pages/home/widgets/home_search_field.dart';
+import 'package:cosmetics/views/layout/pages/home/widgets/product_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

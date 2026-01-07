@@ -1,4 +1,4 @@
-import 'package:cosmetics/views/categories/widgets/categories_view_body.dart';
+import 'package:cosmetics/views/layout/pages/categories/widgets/categories_view_body.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesView extends StatelessWidget {
