@@ -1,7 +1,7 @@
 import 'package:cosmetics/core/utils/navigate.dart';
 import 'package:cosmetics/core/utils/utils.dart';
 import 'package:cosmetics/core/widgets/custom_image_widget.dart';
-import 'package:cosmetics/views/login/login_view.dart';
+import 'package:cosmetics/views/auth/login/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -64,7 +64,7 @@ class _OnboardingViewState extends State<OnboardingView> {
           child: Column(
             children: [
               Align(
-                alignment: Alignment.topRight,
+                alignment: AlignmentDirectional.topEnd,
                 child: TextButton(
                   onPressed: () {
                     context.nextScreen(const LoginView(), replacment: true);
@@ -72,7 +72,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                   child: Text("Skip", style: theme.titleMedium),
                 ),
               ),
-            
+
               Expanded(
                 child: PageView.builder(
                   controller: pageController,
@@ -104,8 +104,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                   },
                 ),
               ),
-            
-              /// BUTTON
+
               GestureDetector(
                 onTap: () {
                   if (currentPage == onboardingData.length - 1) {
@@ -137,7 +136,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                   ),
                 ),
               ),
-            
+
               50.ph,
             ],
           ),

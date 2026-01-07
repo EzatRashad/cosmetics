@@ -12,7 +12,7 @@ class ButtonWidget extends StatelessWidget {
   final FontWeight? fontweight;
   final Alignment? alignment;
   final Color? textColor, buttonColor, borderColor;
-  final void Function()? onTap;
+  final VoidCallback? onTap;
   final bool withBorder;
 
   const ButtonWidget({
@@ -65,9 +65,9 @@ class ButtonWidget extends StatelessWidget {
             child ??
             Text(
               title,
-              style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                color: AppColors.white,
-              )
+              style: Theme.of(
+                context,
+              ).textTheme.titleMedium!.copyWith(color: AppColors.white),
             ),
       ),
     );

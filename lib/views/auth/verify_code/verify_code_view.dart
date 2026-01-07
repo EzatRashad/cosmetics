@@ -1,4 +1,4 @@
-import 'package:cosmetics/views/verify_code/widgets/verify_code_view_body.dart';
+import 'package:cosmetics/views/auth/verify_code/widgets/verify_code_view_body.dart';
 import 'package:flutter/material.dart';
 
 class VerifyCodeView extends StatelessWidget {

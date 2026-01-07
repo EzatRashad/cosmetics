@@ -1,4 +1,4 @@
- import 'package:cosmetics/views/create_account/widgets/create_account_view_body.dart';
+ import 'package:cosmetics/views/auth/create_account/widgets/create_account_view_body.dart';
 import 'package:flutter/material.dart';
 
 class CreateAccountView extends StatelessWidget {

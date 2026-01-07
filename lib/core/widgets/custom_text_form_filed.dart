@@ -32,7 +32,7 @@ class CustomTextFormFiled extends StatelessWidget {
         suffixIcon: suffixIcon,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
-          borderSide: BorderSide(color: AppColors.borderColor, width:1.5.w),
+          borderSide: BorderSide(color: AppColors.borderColor, width: 1.5.w),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
@@ -41,7 +41,7 @@ class CustomTextFormFiled extends StatelessWidget {
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
-          borderSide: BorderSide(width: 1.5.w,color: AppColors.borderColor),
+          borderSide: BorderSide(width: 1.5.w, color: AppColors.borderColor),
         ),
         errorMaxLines: 3,
         errorStyle: Theme.of(
