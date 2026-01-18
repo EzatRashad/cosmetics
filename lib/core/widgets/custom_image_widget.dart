@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-class CustomImageWidget extends StatelessWidget {
+
+class AppImage extends StatelessWidget {
   final String imageName;
   final double? width;
   final double? height;
   final BoxFit fit;
   final Color? color;
 
-  const CustomImageWidget({
+  const AppImage({
     super.key,
     required this.imageName,
     this.width,

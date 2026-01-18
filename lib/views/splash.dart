@@ -34,7 +34,7 @@ class _SplashViewState extends State<SplashView>
     _controller.forward();
 
     Future.delayed(const Duration(seconds: 1), () {
-      context.nextScreen(const OnboardingView(), replacment: true);
+      context.nextScreen(const OnboardingView(), remove: true);
     });
   }
 
@@ -54,13 +54,13 @@ class _SplashViewState extends State<SplashView>
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CustomImageWidget(
+              AppImage(
                 imageName: "splash_logo.png",
                 width: 140.w,
                 height: 140.h,
               ),
               SizedBox(height: 12),
-              CustomImageWidget(
+              AppImage(
                 imageName: "splash_text.png",
                 width: 100.w,
                 height: 46.h,

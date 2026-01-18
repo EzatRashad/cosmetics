@@ -58,13 +58,11 @@ class CartViewBody extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(10.r),
                                   child: Stack(
                                     children: [
-                                      CustomImageWidget(
-                                        imageName: "home_product.png",
-                                      ),
+                                      AppImage(imageName: "home_product.png"),
                                       Positioned(
                                         top: 6.h,
                                         left: 6.w,
-                                        child: CustomImageWidget(
+                                        child: AppImage(
                                           imageName: "out.svg",
                                           width: 19.w,
                                         ),
@@ -125,13 +123,9 @@ class CartViewBody extends StatelessWidget {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceEvenly,
                                           children: [
-                                            CustomImageWidget(
-                                              imageName: "minus.svg",
-                                            ),
+                                            AppImage(imageName: "minus.svg"),
                                             Text('1', style: theme.titleMedium),
-                                            CustomImageWidget(
-                                              imageName: "plus.svg",
-                                            ),
+                                            AppImage(imageName: "plus.svg"),
                                           ],
                                         ),
                                       ),

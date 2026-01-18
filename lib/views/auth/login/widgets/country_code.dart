@@ -3,19 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CountryCodeDropdown extends StatefulWidget {
-  const CountryCodeDropdown({super.key});
+  const CountryCodeDropdown({super.key, required this.codes, required this.onChanged, required this.initialValue});
+  final List<String> codes;
+  final String initialValue;
+  final ValueChanged<String?> onChanged;
+
 
   @override
   State<CountryCodeDropdown> createState() => CountryCodeDropdownState();
 }
 
 class CountryCodeDropdownState extends State<CountryCodeDropdown> {
-  String selectedCode = '+20';
-
+ 
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField(
-      initialValue: selectedCode,
+      initialValue: widget.initialValue,
       padding: EdgeInsets.symmetric(vertical: 4.5.h),
       alignment: Alignment.center,
       style: Theme.of(context).textTheme.titleSmall!.copyWith(fontSize: 12.sp),
@@ -43,16 +46,10 @@ class CountryCodeDropdownState extends State<CountryCodeDropdown> {
         ),
         contentPadding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 10.h),
       ),
-      items: const [
-        DropdownMenuItem(value: '+20', child: Text('+20')),
-        DropdownMenuItem(value: '+966', child: Text('+966')),
-        DropdownMenuItem(value: '+971', child: Text('+971')),
-      ],
-      onChanged: (value) {
-        setState(() {
-          selectedCode = value!;
-        });
-      },
+      items: widget.codes.map((code) {
+        return DropdownMenuItem(value: code, child: Text(code));
+      }).toList(),
+      onChanged: widget.onChanged
     );
   }
 }

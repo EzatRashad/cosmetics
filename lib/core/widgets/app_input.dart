@@ -2,8 +2,8 @@ import 'package:cosmetics/core/style/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomTextFormFiled extends StatelessWidget {
-  const CustomTextFormFiled({
+class AppInput extends StatelessWidget {
+  const AppInput({
     super.key,
     required this.label,
     required this.controller,

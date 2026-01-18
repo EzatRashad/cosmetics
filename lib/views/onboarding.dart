@@ -82,10 +82,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                     return Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        CustomImageWidget(
-                          imageName: item["image"]!,
-                          height: 250.h,
-                        ),
+                        AppImage(imageName: item["image"]!, height: 250.h),
                         20.ph,
                         Text(
                           item["title"]!,
@@ -108,7 +105,7 @@ class _OnboardingViewState extends State<OnboardingView> {
               GestureDetector(
                 onTap: () {
                   if (currentPage == onboardingData.length - 1) {
-                    context.nextScreen(const LoginView(), replacment: true);
+                    context.nextScreen(const LoginView(), remove: true);
                   } else {
                     pageController.nextPage(
                       duration: const Duration(milliseconds: 300),
@@ -132,7 +129,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                             "Get Started",
                             style: TextStyle(color: Colors.white),
                           )
-                        : const CustomImageWidget(imageName: "forward.png"),
+                        : const AppImage(imageName: "forward.png"),
                   ),
                 ),
               ),

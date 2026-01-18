@@ -37,7 +37,7 @@ class ProductItem extends StatelessWidget {
                   Expanded(
                     child: AspectRatio(
                       aspectRatio: 161.w / 169.h,
-                      child: CustomImageWidget(imageName: "home_product.png"),
+                      child: AppImage(imageName: "home_product.png"),
                     ),
                   ),
                   5.ph,
@@ -69,7 +69,7 @@ class ProductItem extends StatelessWidget {
                   color: AppColors.white,
                   borderRadius: BorderRadius.circular(6.r),
                 ),
-                child: CustomImageWidget(imageName: "home_card.svg"),
+                child: AppImage(imageName: "home_card.svg"),
               ),
             ),
           ],

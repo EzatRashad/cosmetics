@@ -15,12 +15,12 @@ class NaivgationBarItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return isSelected
-        ? CustomImageWidget(
+        ? AppImage(
             width: 20.w,
             height: 20.h,
             imageName: bottomNavigationBarEntity.activeImage,
           )
-        : CustomImageWidget(
+        : AppImage(
             width: 20.w,
             height: 20.h,
             imageName: bottomNavigationBarEntity.inActiveImage,

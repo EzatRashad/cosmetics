@@ -13,7 +13,7 @@ class CategoriesAppBar extends StatelessWidget {
       elevation: 0,
       floating: true,
       snap: true,
-      actions: [CustomImageWidget(imageName: "card.svg")],
+      actions: [AppImage(imageName: "card.svg")],
       title: Text('My Cart', style: Theme.of(context).textTheme.titleLarge),
       centerTitle: true,
     );

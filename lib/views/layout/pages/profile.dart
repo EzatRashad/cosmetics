@@ -25,8 +25,9 @@ class ProfileView extends StatelessWidget {
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                       colors: [
-                        const Color(0xFF434C6D).withOpacity(.8),
                         const Color(0xffECA4C5),
+
+                        Color(0xFF434C6D).withValues(alpha: .83),
                       ],
                     ),
                     boxShadow: const [
@@ -79,7 +80,7 @@ class ProfileView extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      CustomImageWidget(imageName: "logout.svg"),
+                      AppImage(imageName: "logout.svg"),
                       8.pw,
                       Text(
                         "Logout",
@@ -109,7 +110,7 @@ class InfoWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        CustomImageWidget(imageName: imageName),
+        AppImage(imageName: imageName),
         8.pw,
         Text(
           title,
@@ -118,7 +119,7 @@ class InfoWidget extends StatelessWidget {
           ).textTheme.titleMedium?.copyWith(fontSize: 14.sp),
         ),
         Spacer(),
-        CustomImageWidget(imageName: "arrow.svg"),
+        AppImage(imageName: "arrow.svg"),
       ],
     );
   }

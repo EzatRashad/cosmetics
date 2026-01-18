@@ -13,6 +13,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_svg :
   pin_code_fields :
+  dio:
   flutter_bloc:
   skeletonizer:
   flutter_screenutil :

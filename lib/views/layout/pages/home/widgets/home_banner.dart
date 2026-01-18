@@ -1,6 +1,6 @@
 import 'package:cosmetics/core/widgets/custom_image_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart'; 
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeBanner extends StatelessWidget {
   const HomeBanner({super.key});
@@ -52,13 +52,13 @@ class HomeBanner extends StatelessWidget {
                     ],
                   ),
                   Spacer(),
-                  CustomImageWidget(imageName: "offer.svg"),
+                  AppImage(imageName: "offer.svg"),
                 ],
               ),
               Spacer(),
               Row(
                 children: [
-                  CustomImageWidget(imageName: "offer.svg"),
+                  AppImage(imageName: "offer.svg"),
                   Spacer(),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

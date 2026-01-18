@@ -31,7 +31,7 @@ class HomeSearchField extends StatelessWidget {
           ),
           suffixIcon: SizedBox(
             width: 20.w,
-            child: Center(child: CustomImageWidget(imageName: "search.svg")),
+            child: Center(child: AppImage(imageName: "search.svg")),
           ),
           hintStyle: Theme.of(context).textTheme.titleSmall,
           filled: true,

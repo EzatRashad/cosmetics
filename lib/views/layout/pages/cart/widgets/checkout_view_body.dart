@@ -27,7 +27,7 @@ class CheckoutViewBody extends StatelessWidget {
                     onTap: () => Navigator.pop(context),
                     child: CircleAvatar(
                       backgroundColor: const Color(0xff101010).withOpacity(0.1),
-                      child: CustomImageWidget(imageName: "arrow_back.svg"),
+                      child: AppImage(imageName: "arrow_back.svg"),
                     ),
                   ),
                   16.pw,
@@ -67,7 +67,7 @@ class CheckoutViewBody extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            CustomImageWidget(imageName: "checkout.svg"),
+                            AppImage(imageName: "checkout.svg"),
                             2.pw,
                             Text(
                               'ORDER',

@@ -30,7 +30,7 @@ class AddressPayment extends StatelessWidget {
           ),
           child: ListTile(
             contentPadding: EdgeInsets.zero,
-            leading: CustomImageWidget(
+            leading: AppImage(
               imageName: "map.png",
               width: 97.w,
               height: 60.h,
@@ -44,10 +44,7 @@ class AddressPayment extends StatelessWidget {
               'Mansoura, 14 Porsaid St',
               style: theme.titleSmall!.copyWith(fontSize: 10.sp),
             ),
-            trailing: CustomImageWidget(
-              imageName: "check_out_arrow.svg",
-              width: 22.w,
-            ),
+            trailing: AppImage(imageName: "check_out_arrow.svg", width: 22.w),
           ),
         ),
         40.ph,
@@ -67,14 +64,14 @@ class AddressPayment extends StatelessWidget {
           ),
           child: Row(
             children: [
-              CustomImageWidget(imageName: "misa.svg", width: 30.w),
+              AppImage(imageName: "misa.svg", width: 30.w),
               10.pw,
               Text(
                 '**** **** **** 1234',
                 style: theme.titleMedium!.copyWith(fontSize: 12.sp),
               ),
               const Spacer(),
-              CustomImageWidget(imageName: "check_out_arrow.svg", width: 22.w),
+              AppImage(imageName: "check_out_arrow.svg", width: 22.w),
             ],
           ),
         ),
@@ -88,7 +85,7 @@ class AddressPayment extends StatelessWidget {
           ),
           child: Row(
             children: [
-              CustomImageWidget(imageName: "discount.svg", width: 30.w),
+              AppImage(imageName: "discount.svg", width: 30.w),
               10.pw,
               Text(
                 'Add vaucher',

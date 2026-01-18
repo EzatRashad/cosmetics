@@ -31,20 +31,17 @@ class CategoriesViewBody extends StatelessWidget {
                             aspectRatio: 64.w / 69.h,
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(10.r),
-                              child: CustomImageWidget(
-                                imageName: "home_product.png",
-                              ),
+                              child: AppImage(imageName: "home_product.png"),
                             ),
                           ),
                         ),
                         12.pw,
                         Text('Bundles', style: theme.titleMedium),
                         Spacer(),
-                        CustomImageWidget(imageName: "arrow.svg"),
+                        AppImage(imageName: "arrow.svg"),
                       ],
                     ),
-                    if (index < 5)
-                    Divider(thickness: 1.h, height: 20.h),
+                    if (index < 5) Divider(thickness: 1.h, height: 20.h),
                   ],
                 ),
               ),
