@@ -3,3 +3,8 @@ const loginEndpoint = "/api/Auth/login";
 const registerEndpoint = '/api/Auth/register';
 const countryCodesEndpoint = '/api/Countries';
 const otpEndpoint = "/api/Auth/verify-otp";
+const skipOnboardingK = "skipOnboardingK";
+const logedK = "loged";
+const tokenK = "tokenK";
+String? token;
+ 

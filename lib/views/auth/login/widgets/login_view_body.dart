@@ -1,3 +1,5 @@
+import 'package:cosmetics/core/constants/api_constants.dart';
+import 'package:cosmetics/core/services/cashe_helper.dart';
 import 'package:cosmetics/core/style/app_colors.dart';
 import 'package:cosmetics/core/utils/navigate.dart';
 import 'package:cosmetics/core/utils/utils.dart';
@@ -41,6 +43,10 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 ).showSnackBar(SnackBar(content: Text(state.message)));
               }
               if (state is LoginSuccess) {
+                CasheHelper.saveData(key: logedK, value: true);
+                CasheHelper.saveData(key: tokenK, value: state.userModel.token);
+                token = state.userModel.token;
+
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(

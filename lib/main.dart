@@ -1,3 +1,7 @@
+import 'dart:developer';
+
+import 'package:cosmetics/core/constants/api_constants.dart';
+import 'package:cosmetics/core/services/cashe_helper.dart';
 import 'package:cosmetics/core/services/dio_helper.dart';
 import 'package:cosmetics/core/style/app_theme.dart';
 import 'package:cosmetics/views/splash.dart';
@@ -5,8 +9,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
-   await ScreenUtil.ensureScreenSize();
-   DioHelper.init();
+  await ScreenUtil.ensureScreenSize();
+  await CasheHelper.init();
+  token = CasheHelper.getData(key: tokenK);
+  log(token??"token is null");
+
+  DioHelper.init();
   runApp(const MyApp());
 }
 

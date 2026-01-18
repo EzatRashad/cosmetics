@@ -1,6 +1,6 @@
 name: cosmetics
 description: "Cosmetics Flutter App UI"
-publish_to: 'none'
+publish_to: "none"
 
 version: 1.0.0+1
 
@@ -11,13 +11,14 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.8
-  flutter_svg :
-  pin_code_fields :
+  flutter_svg:
+  pin_code_fields:
   dio:
   flutter_bloc:
   skeletonizer:
-  flutter_screenutil :
-  google_maps_flutter :
+  shared_preferences:
+  flutter_screenutil:
+  google_maps_flutter:
 
 dev_dependencies:
   flutter_test:
@@ -39,9 +40,6 @@ flutter:
     - family: montserrat
       fonts:
         - asset: assets/fonts/montserrat/Montserrat-Regular.ttf
-        
-
-        
 
 flutter_launcher_icons:
   android: true
@@ -50,6 +48,3 @@ flutter_launcher_icons:
   min_sdk_android: 24
   adaptive_icon_background: "#FFFFFF"
   adaptive_icon_foreground: assets/images/app_icon.png
-
-
- 
