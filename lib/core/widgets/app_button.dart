@@ -2,7 +2,7 @@ import 'package:cosmetics/core/style/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ButtonWidget extends StatelessWidget {
+class AppButton extends StatelessWidget {
   final String title;
   final String? fontFamily;
   final double width, height, radius;
@@ -15,7 +15,7 @@ class ButtonWidget extends StatelessWidget {
   final VoidCallback? onTap;
   final bool withBorder;
 
-  const ButtonWidget({
+  const AppButton({
     super.key,
     this.gradient,
     this.title = "OK",

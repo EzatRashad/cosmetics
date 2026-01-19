@@ -1,11 +1,16 @@
+import 'package:cosmetics/view_model/categories_cubit/catigories_cubit.dart';
 import 'package:cosmetics/views/layout/pages/categories/widgets/categories_view_body.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CategoriesView extends StatelessWidget {
   const CategoriesView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const CategoriesViewBody();
+    return BlocProvider(
+      create: (context) => CatigoriesCubit()..getCategories(),
+      child: CategoriesViewBody(),
+    );
   }
 }

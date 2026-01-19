@@ -16,6 +16,7 @@ dependencies:
   dio:
   flutter_bloc:
   skeletonizer:
+  lottie:
   shared_preferences:
   flutter_screenutil:
   google_maps_flutter:
@@ -36,10 +37,10 @@ flutter:
   fonts:
     - family: Segoe
       fonts:
-        - asset: assets/fonts/segoe/Segoe-UI.ttf
+        - asset: assets/fonts/Segoe_UI.ttf
     - family: montserrat
       fonts:
-        - asset: assets/fonts/montserrat/Montserrat-Regular.ttf
+        - asset: assets/fonts/Montserrat_Regular.ttf
 
 flutter_launcher_icons:
   android: true

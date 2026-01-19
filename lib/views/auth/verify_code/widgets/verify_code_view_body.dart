@@ -1,6 +1,6 @@
 import 'package:cosmetics/core/utils/navigate.dart';
 import 'package:cosmetics/core/utils/utils.dart';
-import 'package:cosmetics/core/widgets/button_widget.dart';
+import 'package:cosmetics/core/widgets/app_button.dart';
 import 'package:cosmetics/core/widgets/custom_image_widget.dart';
 import 'package:cosmetics/view_model/otp_cubit/oto_state.dart';
 import 'package:cosmetics/view_model/otp_cubit/otp_cubit.dart';
@@ -100,7 +100,7 @@ class _VerifyCodeViewBodyState extends State<VerifyCodeViewBody> {
                           ),
                         ),
                         23.ph,
-                        ButtonWidget(
+                        AppButton(
                           width: 250.w,
                           height: 56.h,
                           radius: 24.r,
@@ -208,7 +208,7 @@ class _VerifyCodeViewBodyState extends State<VerifyCodeViewBody> {
                   ],
                 ),
                 48.ph,
-                ButtonWidget(
+                AppButton(
                   width: 250.w,
                   height: 56.h,
                   radius: 24.r,

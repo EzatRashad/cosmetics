@@ -1,6 +1,6 @@
 import 'package:cosmetics/core/utils/navigate.dart';
 import 'package:cosmetics/core/utils/utils.dart';
-import 'package:cosmetics/core/widgets/button_widget.dart';
+import 'package:cosmetics/core/widgets/app_button.dart';
 import 'package:cosmetics/core/widgets/custom_image_widget.dart';
 import 'package:cosmetics/views/layout/pages/cart/checkout_view.dart';
 import 'package:cosmetics/views/layout/pages/categories/widgets/categories_App_bar.dart';
@@ -147,7 +147,7 @@ class CartViewBody extends StatelessWidget {
                 right: 0,
                 left: 0,
                 bottom: 10.h,
-                child: ButtonWidget(
+                child: AppButton(
                   height: 55.h,
                   radius: 20.r,
                   title: "CHECKOUT",

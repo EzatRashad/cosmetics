@@ -20,11 +20,12 @@ class _LayoutViewBodyState extends State<LayoutViewBody> {
       bloc: layoutCubit,
       builder: (context, state) {
         return Scaffold(
-          bottomNavigationBar: CustomBottomNavigationBar(
-            
-            onItemTapped: (int value) {
-              layoutCubit.changeIndex(value);
-            },
+          bottomNavigationBar: SafeArea(
+            child: CustomBottomNavigationBar(
+              onItemTapped: (int value) {
+                layoutCubit.changeIndex(value);
+              },
+            ),
           ),
           body: layoutCubit.screens[layoutCubit.selectedIndex],
         );

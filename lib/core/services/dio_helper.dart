@@ -12,9 +12,11 @@ class DioHelper {
         receiveDataWhenStatusError: true,
         connectTimeout: const Duration(seconds: 10),
         receiveTimeout: const Duration(seconds: 10),
+
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
+            if (token != null) 'Authorization': 'Bearer $token',
         },
       ),
     );
@@ -22,9 +24,12 @@ class DioHelper {
     dio.interceptors.add(LogInterceptor(requestBody: true, responseBody: true));
   }
 
-  static Future<Response> getData({required String url}) async {
+  static Future<Response> getData({
+    required String url,
+    Map<String, dynamic>? queryParameters,
+  }) async {
     try {
-      final response = await dio.get(url);
+      final response = await dio.get(url, queryParameters: queryParameters);
       return response;
     } on DioException catch (e) {
       throw ApiError(ApiError.handleDioError(e));
@@ -34,9 +39,14 @@ class DioHelper {
   static Future<Response> postData({
     required String url,
     Map<String, dynamic>? data,
+    Map<String, dynamic>? queryParameters,
   }) async {
     try {
-      final response = await dio.post(url, data: data);
+      final response = await dio.post(
+        url,
+        data: data,
+        queryParameters: queryParameters,
+      );
       return response;
     } on DioException catch (e) {
       throw ApiError(ApiError.handleDioError(e));

@@ -1,6 +1,6 @@
 import 'package:cosmetics/core/style/app_colors.dart';
 import 'package:cosmetics/core/utils/utils.dart';
-import 'package:cosmetics/core/widgets/button_widget.dart';
+import 'package:cosmetics/core/widgets/app_button.dart';
 import 'package:cosmetics/core/widgets/custom_image_widget.dart';
 import 'package:cosmetics/views/layout/pages/cart/widgets/address_payment.dart';
 import 'package:cosmetics/views/layout/pages/cart/widgets/payment_sammary.dart';
@@ -60,7 +60,7 @@ class CheckoutViewBody extends StatelessWidget {
                       AddressPayment(),
 
                       PaymentSammary(),
-                      ButtonWidget(
+                      AppButton(
                         width: 268.w,
                         height: 65.h,
                         radius: 30.r,

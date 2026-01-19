@@ -3,7 +3,7 @@ import 'package:cosmetics/core/services/cashe_helper.dart';
 import 'package:cosmetics/core/style/app_colors.dart';
 import 'package:cosmetics/core/utils/navigate.dart';
 import 'package:cosmetics/core/utils/utils.dart';
-import 'package:cosmetics/core/widgets/button_widget.dart';
+import 'package:cosmetics/core/widgets/app_button.dart';
 import 'package:cosmetics/core/widgets/custom_image_widget.dart';
 import 'package:cosmetics/core/widgets/app_input.dart';
 import 'package:cosmetics/core/widgets/login_or_register.dart';
@@ -38,22 +38,22 @@ class _LoginViewBodyState extends State<LoginViewBody> {
           child: BlocConsumer<LoginCubit, LoginState>(
             listener: (context, state) {
               if (state is LoginError) {
-                ScaffoldMessenger.of(
-                  context,
-                ).showSnackBar(SnackBar(content: Text(state.message)));
+                context.showSnackBar(
+                  message: state.message,
+                  backgroundColor: AppColors.error,
+                  textColor: Colors.white,
+                );
               }
               if (state is LoginSuccess) {
                 CasheHelper.saveData(key: logedK, value: true);
                 CasheHelper.saveData(key: tokenK, value: state.userModel.token);
                 token = state.userModel.token;
-
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(
-                      "Login Success ${state.userModel.user?.username}",
-                    ),
-                  ),
+                context.showSnackBar(
+                  message: "Login Success ${state.userModel.user?.username}",
+                  backgroundColor: Colors.green,
+                  textColor: Colors.white,
                 );
+
                 context.nextScreen(LayoutView(), remove: true);
               }
             },
@@ -131,7 +131,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
 
                     state is LoginLoading
                         ? const Center(child: CircularProgressIndicator())
-                        : ButtonWidget(
+                        : AppButton(
                             width: 250.w,
                             height: 56.h,
                             radius: 24.r,

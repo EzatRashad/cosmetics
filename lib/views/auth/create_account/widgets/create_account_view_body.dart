@@ -1,7 +1,7 @@
 import 'package:cosmetics/core/utils/navigate.dart';
 import 'package:cosmetics/core/utils/utils.dart';
 import 'package:cosmetics/core/utils/validatio.dart';
-import 'package:cosmetics/core/widgets/button_widget.dart';
+import 'package:cosmetics/core/widgets/app_button.dart';
 import 'package:cosmetics/core/widgets/custom_image_widget.dart';
 import 'package:cosmetics/core/widgets/app_input.dart';
 import 'package:cosmetics/core/widgets/login_or_register.dart';
@@ -157,14 +157,14 @@ class _CreateAccountViewBodyState extends State<CreateAccountViewBody> {
                     89.ph,
                     state is RegisterLoading
                         ? const Center(child: CircularProgressIndicator())
-                        : ButtonWidget(
+                        : AppButton(
                             width: 250.w,
                             height: 56.h,
                             radius: 24.r,
                             title: "Next",
                             onTap: () {
                               if (_formKey.currentState!.validate()) {
-                              cubit.register(
+                                cubit.register(
                                   username: name.text,
                                   countryCode: countryCode,
                                   phoneNumber: phone.text,

@@ -1,5 +1,5 @@
 import 'package:cosmetics/core/utils/utils.dart';
-import 'package:cosmetics/core/widgets/button_widget.dart';
+import 'package:cosmetics/core/widgets/app_button.dart';
 import 'package:cosmetics/core/widgets/custom_image_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -92,7 +92,7 @@ class AddressPayment extends StatelessWidget {
                 style: theme.titleMedium!.copyWith(fontSize: 12.sp),
               ),
               const Spacer(),
-              ButtonWidget(
+              AppButton(
                 width: 77.w,
                 height: 33.h,
                 radius: 20.r,
