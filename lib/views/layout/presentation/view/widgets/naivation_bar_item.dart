@@ -1,4 +1,4 @@
-import 'package:cosmetics/core/widgets/custom_image_widget.dart';
+import 'package:cosmetics/core/widgets/App_image.dart';
 import 'package:cosmetics/views/layout/domain/bottom_navigation_bar_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

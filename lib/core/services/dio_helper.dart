@@ -16,7 +16,7 @@ class DioHelper {
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
-            if (token != null) 'Authorization': 'Bearer $token',
+          if (token != null) 'Authorization': 'Bearer $token',
         },
       ),
     );
@@ -43,6 +43,32 @@ class DioHelper {
   }) async {
     try {
       final response = await dio.post(
+        url,
+        data: data,
+        queryParameters: queryParameters,
+      );
+      return response;
+    } on DioException catch (e) {
+      throw ApiError(ApiError.handleDioError(e));
+    }
+  }
+
+  static Future<Response> remove({required String url}) async {
+    try {
+      final response = await dio.delete(url);
+      return response;
+    } on DioException catch (e) {
+      throw ApiError(ApiError.handleDioError(e));
+    }
+  }
+
+  static Future<Response> put({
+    required String url,
+    Map<String, dynamic>? data,
+    Map<String, dynamic>? queryParameters,
+  }) async {
+    try {
+      final response = await dio.put(
         url,
         data: data,
         queryParameters: queryParameters,

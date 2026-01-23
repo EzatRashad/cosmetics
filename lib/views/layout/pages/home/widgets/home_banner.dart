@@ -1,4 +1,5 @@
-import 'package:cosmetics/core/widgets/custom_image_widget.dart';
+import 'package:cosmetics/core/widgets/App_image.dart';
+import 'package:cosmetics/core/widgets/app_network_image.dart';
 import 'package:cosmetics/models/slider_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -37,11 +38,12 @@ class HomeBannerState extends State<HomeBanner> {
                 children: [
                   ClipRRect(
                     borderRadius: BorderRadius.circular(12),
-                    child: Image.network(
-                      "https://images.pexels.com/photos/2866796/pexels-photo-2866796.jpeg",
+                    child: AppNetworkImage(
                       width: double.infinity,
                       height: 320.h,
-                      fit: BoxFit.fill,
+                      boxFit: BoxFit.fill,
+                      image:
+                          "https://images.pexels.com/photos/2866796/pexels-photo-2866796.jpeg",
                     ),
                   ),
                   Container(

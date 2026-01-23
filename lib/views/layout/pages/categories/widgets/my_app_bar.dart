@@ -1,20 +1,27 @@
 import 'package:cosmetics/core/style/app_colors.dart';
-import 'package:cosmetics/core/widgets/custom_image_widget.dart';
+import 'package:cosmetics/core/widgets/App_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CategoriesAppBar extends StatelessWidget {
-  const CategoriesAppBar({super.key});
-
+class MyAppBar extends StatelessWidget {
+  const MyAppBar({super.key, required this.title, this.isAction = false});
+  final String title;
+  final bool isAction;
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
       backgroundColor: AppColors.background,
       elevation: 0,
       floating: true,
+      actions: [
+        isAction
+            ? GestureDetector(
+                child: AppImage(imageName: "out.svg", width: 20.w),
+              )
+            : SizedBox(),
+      ],
       snap: true,
-      actions: [AppImage(imageName: "card.svg")],
-      title: Text('My Cart', style: Theme.of(context).textTheme.titleLarge),
+      title: Text(title, style: Theme.of(context).textTheme.titleLarge),
       centerTitle: true,
     );
   }

@@ -1,6 +1,6 @@
 import 'package:cosmetics/core/style/app_colors.dart';
 import 'package:cosmetics/core/utils/utils.dart';
-import 'package:cosmetics/core/widgets/custom_image_widget.dart';
+import 'package:cosmetics/core/widgets/App_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

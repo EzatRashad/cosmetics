@@ -7,9 +7,11 @@ const sliderEndpoint = "/api/Sliders";
 const categoriesEndpoint = "/api/Categories";
 const productsEndpoint = "/api/Products";
 const addToCartEndpoint = "/api/Cart/add";
+const getCartEndpoint = "/api/Cart";
+const deleteCartItemEndpoint = "/api/Cart/remove/";
+const updateCartItemEndpoint = "/api/Cart/update";
 const skipOnboardingK = "skipOnboardingK";
 const loadingImage = "assets/images/Loading.json";
 const logedK = "loged";
 const tokenK = "tokenK";
 String? token;
- 
