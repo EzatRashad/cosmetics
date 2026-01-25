@@ -8,6 +8,7 @@ class AppInput extends StatelessWidget {
     required this.label,
     required this.controller,
     this.obscureText = false,
+    this.keyboardType = TextInputType.text,
     this.suffixIcon,
     this.validator,
   });
@@ -16,12 +17,13 @@ class AppInput extends StatelessWidget {
   final bool obscureText;
   final Widget? suffixIcon;
   final String? Function(String?)? validator;
+  final TextInputType? keyboardType;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       validator: validator,
-
+      keyboardType: keyboardType,
       onTapOutside: (event) => FocusManager.instance.primaryFocus!.unfocus(),
 
       cursorColor: AppColors.borderColor,

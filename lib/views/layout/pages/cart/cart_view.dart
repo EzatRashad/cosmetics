@@ -37,22 +37,26 @@ class _CartViewState extends State<CartView> {
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 13.w),
           child: BlocConsumer<CartCubit, CartState>(
+            buildWhen: (previous, current) =>
+                current is GetCartLoading ||
+                current is GetCartSuccess ||
+                current is GetCartError,
             builder: (context, state) {
               final cubit = CartCubit.get(context);
 
-              if (state is GetCartLoading && cubit.cartModel == null) {
+              if (state is GetCartLoading) {
                 return Center(child: Lottie.asset(loadingImage, width: 180));
               }
 
-              if (state is GetCartError && cubit.cartModel == null) {
+              if (state is GetCartError) {
                 return ErrorBanner(
                   message: state.message,
                   onRetry: () => cubit.getCart(),
                 );
               }
 
-              if (cubit.cartModel != null) {
-                var model = cubit.cartModel!;
+              if (state is GetCartSuccess) {
+                var model = state.cartModel;
                 return Stack(
                   children: [
                     CustomScrollView(
@@ -106,11 +110,11 @@ class _CartViewState extends State<CartView> {
                       right: 0,
                       left: 0,
                       bottom: 10.h,
-                      child: cubit.total > 0
+                      child: model.total > 0
                           ? AppButton(
                               height: 55.h,
                               radius: 20.r,
-                              title: "CHECKOUT  ${cubit.total} EGP",
+                              title: "CHECKOUT  ${model.total} EGP",
                               onTap: () =>
                                   context.nextScreen(const CheckoutView()),
                             )

@@ -8,7 +8,7 @@ extension EmptyPadding on num {
 extension SnackBarExtension on BuildContext {
   void showSnackBar({
     required String message,
-    Color backgroundColor = Colors.black,
+    Color backgroundColor = Colors.green,
     Color textColor = Colors.white,
     Duration duration = const Duration(seconds: 2),
   }) {

@@ -5,24 +5,36 @@ import 'package:dio/dio.dart';
 class DioHelper {
   static late Dio dio;
 
-  static void init() {
-    dio = Dio(
-      BaseOptions(
-        baseUrl: baseUrl,
-        receiveDataWhenStatusError: true,
-        connectTimeout: const Duration(seconds: 10),
-        receiveTimeout: const Duration(seconds: 10),
+static void init() {
+  dio = Dio(
+    BaseOptions(
+      baseUrl: baseUrl,
+      receiveDataWhenStatusError: true,
+      connectTimeout: const Duration(seconds: 10),
+      receiveTimeout: const Duration(seconds: 10),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+    ),
+  );
 
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          if (token != null) 'Authorization': 'Bearer $token',
-        },
-      ),
-    );
+  dio.interceptors.add(
+    InterceptorsWrapper(
+      onRequest: (options, handler) {
+        if (token != null && token!.isNotEmpty) {
+          options.headers['Authorization'] = 'Bearer $token';
+        }
+        return handler.next(options);
+      },
+    ),
+  );
 
-    dio.interceptors.add(LogInterceptor(requestBody: true, responseBody: true));
-  }
+  dio.interceptors.add(
+    LogInterceptor(requestBody: true, responseBody: true),
+  );
+}
+
 
   static Future<Response> getData({
     required String url,

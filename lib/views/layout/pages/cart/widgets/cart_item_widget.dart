@@ -2,6 +2,7 @@ import 'package:cosmetics/core/utils/utils.dart';
 import 'package:cosmetics/core/widgets/App_image.dart';
 import 'package:cosmetics/models/cart_item_model.dart';
 import 'package:cosmetics/view_model/cart_cubit/cart_cubit.dart';
+import 'package:cosmetics/view_model/cart_cubit/cart_state.dart'; // تأكد من استيراد الـ states
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -32,9 +33,8 @@ class CartItemWidget extends StatelessWidget {
                       top: 6.h,
                       left: 6.w,
                       child: GestureDetector(
-                        onTap: () => CartCubit.get(
-                          context,
-                        ).removeItem(itemId: item.productId.toString()),
+                        onTap: () => CartCubit.get(context)
+                            .removeItem(itemId: item.productId.toString()),
                         child: AppImage(imageName: "out.svg", width: 19.w),
                       ),
                     ),
@@ -80,38 +80,53 @@ class CartItemWidget extends StatelessWidget {
                           width: 1.w,
                         ),
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              if (item.quantity > 1) {
-                                context.read<CartCubit>().updateCartItem(
-                                  productId: item.productId.toString(),
-                                  quantity: (item.quantity) - 1,
-                                );
-                              } else {
-                                context.read<CartCubit>().removeItem(
-                                  itemId: item.productId.toString(),
-                                );
-                              }
-                            },
-                            child: AppImage(imageName: "minus.svg"),
-                          ),
-                          Text(
-                            item.quantity.toString(),
-                            style: theme.titleMedium,
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              context.read<CartCubit>().updateCartItem(
-                                productId: item.productId.toString(),
-                                quantity: (item.quantity) + 1,
-                              );
-                            },
-                            child: AppImage(imageName: "plus.svg"),
-                          ),
-                        ],
+                      child: BlocSelector<CartCubit, CartState, int>(
+                        selector: (state) {
+                          if (state is GetCartSuccess) {
+                            return state.cartModel.items
+                                .firstWhere(
+                                  (e) => e.productId == item.productId,
+                                  orElse: () => item,
+                                )
+                                .quantity;
+                          }
+                          return item.quantity;
+                        },
+                        builder: (context, quantity) {
+                          return Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  if (quantity > 1) {
+                                    context.read<CartCubit>().updateCartItem(
+                                          productId: item.productId.toString(),
+                                          quantity: quantity - 1,
+                                        );
+                                  } else {
+                                    context.read<CartCubit>().removeItem(
+                                          itemId: item.productId.toString(),
+                                        );
+                                  }
+                                },
+                                child: AppImage(imageName: "minus.svg"),
+                              ),
+                              Text(
+                                quantity.toString(),
+                                style: theme.titleMedium,
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  context.read<CartCubit>().updateCartItem(
+                                        productId: item.productId.toString(),
+                                        quantity: quantity + 1,
+                                      );
+                                },
+                                child: AppImage(imageName: "plus.svg"),
+                              ),
+                            ],
+                          );
+                        },
                       ),
                     ),
                   ),
