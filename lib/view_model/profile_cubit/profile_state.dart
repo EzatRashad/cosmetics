@@ -1,7 +1,9 @@
 import 'package:cosmetics/models/profile_model.dart';
 
 abstract class ProfileState {}
+
 class GetProfileInitialState extends ProfileState {}
+
 class GetProfileLoading extends ProfileState {}
 
 class GetProfileSuccess extends ProfileState {
@@ -26,3 +28,14 @@ class LogoutError extends ProfileState {
   LogoutError(this.error);
 }
 
+class UpdateProfileLoading extends ProfileState {}
+
+class UpdateProfileSuccess extends ProfileState {
+  final String message;
+  UpdateProfileSuccess(this.message);
+}
+
+class UpdateProfileError extends ProfileState {
+  final String error;
+  UpdateProfileError(this.error);
+}

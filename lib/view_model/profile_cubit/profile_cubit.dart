@@ -34,4 +34,29 @@ class ProfileCubit extends Cubit<ProfileState> {
       emit(LogoutError(error.message));
     }
   }
+
+ Future<void> updateProfile({
+  required String username,
+  required String phoneNumber,
+  required String email,
+}) async {
+  emit(UpdateProfileLoading());
+
+  try {
+    final response = await DioHelper.put(
+      url: updateProfileEndpoint,
+      data: {
+        "username": username,
+        "phoneNumber": phoneNumber,
+        "email": email,
+      },
+    );
+
+    //await getProfile();  
+    emit(UpdateProfileSuccess(response.data['message']));
+  } on ApiError catch (error) {
+    emit(UpdateProfileError(error.message));
+  }
+}
+
 }
