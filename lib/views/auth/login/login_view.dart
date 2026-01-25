@@ -10,6 +10,7 @@ import 'package:cosmetics/core/widgets/login_or_register.dart';
 import 'package:cosmetics/view_model/login_cubit/login_cubit.dart';
 import 'package:cosmetics/view_model/login_cubit/login_state.dart';
 import 'package:cosmetics/views/auth/create_account/create_account_view.dart';
+import 'package:cosmetics/views/auth/forget_password.dart';
 import 'package:cosmetics/views/auth/login/widgets/country_code.dart';
 import 'package:cosmetics/views/layout/presentation/view/layout_view.dart';
 import 'package:flutter/material.dart';
@@ -125,11 +126,16 @@ class _LoginViewState extends State<LoginView> {
                       12.ph,
                       Align(
                         alignment: AlignmentDirectional.centerEnd,
-                        child: Text(
-                          "Forget Password?",
-                          style: theme.titleSmall!.copyWith(
-                            color: AppColors.error,
-                            fontSize: 12.sp,
+                        child: GestureDetector(
+                          onTap: () {
+                            context.nextScreen(ForgetPasswordView());
+                          },
+                          child: Text(
+                            "Forget Password?",
+                            style: theme.titleSmall!.copyWith(
+                              color: AppColors.error,
+                              fontSize: 12.sp,
+                            ),
                           ),
                         ),
                       ),

@@ -5,6 +5,7 @@ import 'package:cosmetics/core/widgets/app_button.dart';
 import 'package:cosmetics/core/widgets/App_image.dart';
 import 'package:cosmetics/view_model/otp_cubit/oto_state.dart';
 import 'package:cosmetics/view_model/otp_cubit/otp_cubit.dart';
+import 'package:cosmetics/views/auth/create_password.dart';
 import 'package:cosmetics/views/auth/login/login_view.dart';
 import 'package:cosmetics/views/auth/verify_code/widgets/verify_code_fields.dart';
 import 'package:flutter/material.dart';
@@ -14,10 +15,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class VerifyCodeView extends StatefulWidget {
   const VerifyCodeView({
     super.key,
+
     required this.phoneNumber,
     required this.code,
+    this.isForgetPassword = false,
   });
-
+  final bool isForgetPassword;
   final String phoneNumber;
   final String code;
 
@@ -69,48 +72,61 @@ class _VerifyCodeViewState extends State<VerifyCodeView> {
           child: BlocConsumer<OtpCubit, OtpState>(
             listener: (context, state) {
               if (state is OtpSuccess) {
-                showDialog(
-                  context: context,
-                  builder: (_) => AlertDialog(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12.r),
-                    ),
-                    contentPadding: EdgeInsets.symmetric(
-                      vertical: 30.h,
-                      horizontal: 16.w,
-                    ),
-                    content: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        AppImage(
-                          imageName: "dialog_check.png",
-                          width: 100.w,
-                          height: 100.h,
+                widget.isForgetPassword
+                    ? context.nextScreen(
+                        CreatePasswordView(
+                          code: widget.code,
+                          phone: widget.phoneNumber,
                         ),
-                        26.ph,
-                        Text("Account Activated!", style: theme.titleMedium),
-                        23.ph,
-                        Text(
-                          "Congratulations! Your account has been successfully activatedL",
-                          textAlign: TextAlign.center,
-                          style: theme.titleMedium!.copyWith(
-                            color: AppColors.hint_text,
+                      )
+                    : showDialog(
+                        context: context,
+                        builder: (_) => AlertDialog(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12.r),
+                          ),
+                          contentPadding: EdgeInsets.symmetric(
+                            vertical: 30.h,
+                            horizontal: 16.w,
+                          ),
+                          content: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              AppImage(
+                                imageName: "dialog_check.png",
+                                width: 100.w,
+                                height: 100.h,
+                              ),
+                              26.ph,
+                              Text(
+                                "Account Activated!",
+                                style: theme.titleMedium,
+                              ),
+                              23.ph,
+                              Text(
+                                "Congratulations! Your account has been successfully activatedL",
+                                textAlign: TextAlign.center,
+                                style: theme.titleMedium!.copyWith(
+                                  color: AppColors.hint_text,
+                                ),
+                              ),
+                              23.ph,
+                              AppButton(
+                                width: 250.w,
+                                height: 56.h,
+                                radius: 24.r,
+                                title: "Ready To Login",
+                                onTap: () {
+                                  context.nextScreen(
+                                    const LoginView(),
+                                    remove: true,
+                                  );
+                                },
+                              ),
+                            ],
                           ),
                         ),
-                        23.ph,
-                        AppButton(
-                          width: 250.w,
-                          height: 56.h,
-                          radius: 24.r,
-                          title: "Ready To Login",
-                          onTap: () {
-                            context.nextScreen(const LoginView(), remove: true);
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                );
+                      );
               }
 
               if (state is OtpError) {

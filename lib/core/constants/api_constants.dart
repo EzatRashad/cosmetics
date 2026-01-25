@@ -12,7 +12,8 @@ const deleteCartItemEndpoint = "/api/Cart/remove/";
 const updateCartItemEndpoint = "/api/Cart/update";
 const getProfileEndpoint = "/api/Auth/profile";
 const updateProfileEndpoint = "/api/Auth/profile";
-
+const forgetPasswordEndpoint = "/api/Auth/forgot-password";
+const resetPasswordEndpoint = "/api/Auth/reset-password";
 const logoutEndpoint = "/api/Auth/logout";
 const skipOnboardingK = "skipOnboardingK";
 const loadingImage = "assets/images/Loading.json";

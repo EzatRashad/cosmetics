@@ -1,4 +1,3 @@
-import 'package:cosmetics/models/country_code.dart';
 
 abstract class RegisterState {}
 

@@ -33,8 +33,9 @@ class CartItemWidget extends StatelessWidget {
                       top: 6.h,
                       left: 6.w,
                       child: GestureDetector(
-                        onTap: () => CartCubit.get(context)
-                            .removeItem(itemId: item.productId.toString()),
+                        onTap: () => CartCubit.get(
+                          context,
+                        ).removeItem(itemId: item.productId.toString()),
                         child: AppImage(imageName: "out.svg", width: 19.w),
                       ),
                     ),
@@ -80,54 +81,7 @@ class CartItemWidget extends StatelessWidget {
                           width: 1.w,
                         ),
                       ),
-                      child: BlocSelector<CartCubit, CartState, int>(
-                        selector: (state) {
-                          if (state is GetCartSuccess) {
-                            return state.cartModel.items
-                                .firstWhere(
-                                  (e) => e.productId == item.productId,
-                                  orElse: () => item,
-                                )
-                                .quantity;
-                          }
-                          return item.quantity;
-                        },
-                        builder: (context, quantity) {
-                          return Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              GestureDetector(
-                                onTap: () {
-                                  if (quantity > 1) {
-                                    context.read<CartCubit>().updateCartItem(
-                                          productId: item.productId.toString(),
-                                          quantity: quantity - 1,
-                                        );
-                                  } else {
-                                    context.read<CartCubit>().removeItem(
-                                          itemId: item.productId.toString(),
-                                        );
-                                  }
-                                },
-                                child: AppImage(imageName: "minus.svg"),
-                              ),
-                              Text(
-                                quantity.toString(),
-                                style: theme.titleMedium,
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  context.read<CartCubit>().updateCartItem(
-                                        productId: item.productId.toString(),
-                                        quantity: quantity + 1,
-                                      );
-                                },
-                                child: AppImage(imageName: "plus.svg"),
-                              ),
-                            ],
-                          );
-                        },
-                      ),
+                      child: CartCounter(item: item),
                     ),
                   ),
                 ],
@@ -136,6 +90,60 @@ class CartItemWidget extends StatelessWidget {
           ],
         ),
       ],
+    );
+  }
+}
+
+class CartCounter extends StatelessWidget {
+  final CartItemModel item;
+  const CartCounter({super.key, required this.item});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocSelector<CartCubit, CartState, int>(
+      selector: (state) {
+        if (state is GetCartSuccess) {
+          return state.cartModel.items
+              .firstWhere(
+                (e) => e.productId == item.productId,
+                orElse: () => item,
+              )
+              .quantity;
+        }
+        return item.quantity;
+      },
+      builder: (context, quantity) {
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(
+              onPressed: () {
+                if (quantity > 1) {
+                  context.read<CartCubit>().updateCartItem(
+                    productId: item.productId.toString(),
+                    quantity: quantity - 1,
+                  );
+                } else {
+                  context.read<CartCubit>().removeItem(
+                    itemId: item.productId.toString(),
+                  );
+                }
+              },
+              icon: AppImage(imageName: "minus.svg"),
+            ),
+            Text("$quantity", style: Theme.of(context).textTheme.titleMedium),
+            IconButton(
+              onPressed: () {
+                context.read<CartCubit>().updateCartItem(
+                  productId: item.productId.toString(),
+                  quantity: quantity + 1,
+                );
+              },
+              icon: AppImage(imageName: "plus.svg"),
+            ),
+          ],
+        );
+      },
     );
   }
 }

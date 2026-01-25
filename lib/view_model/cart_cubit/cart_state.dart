@@ -42,9 +42,9 @@ class RemoveFromCartError extends CartState {
 
 class UpdateCartItemLoading extends CartState {}
 
-class UpdateCartItemCartSuccess extends CartState {
+class UpdateCartItemSuccess extends CartState {
   final String message;
-  UpdateCartItemCartSuccess.UpdateCartItemSuccess({required this.message});
+  UpdateCartItemSuccess({required this.message});
 }
 
 class UpdateCartItemError extends CartState {

@@ -141,7 +141,7 @@ class _CartViewState extends State<CartView> {
                   textColor: Colors.white,
                 );
               }
-              if (state is UpdateCartItemCartSuccess) {
+              if (state is UpdateCartItemSuccess) {
                 context.showSnackBar(
                   message: state.message,
                   backgroundColor: Colors.green,

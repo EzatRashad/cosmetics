@@ -82,7 +82,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                             ),
                             CircleAvatar(
                               radius: 18.r,
-                              backgroundColor: Theme.of(context).primaryColor,
+                              backgroundColor: AppColors.primary,
                               child: const Icon(
                                 Icons.edit,
                                 size: 16,
