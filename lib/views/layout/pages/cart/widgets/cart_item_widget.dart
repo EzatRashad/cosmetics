@@ -9,8 +9,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CartItemWidget extends StatelessWidget {
   final CartItemModel item;
+  final String image;
 
-  const CartItemWidget({super.key, required this.item});
+  const CartItemWidget({super.key, required this.item, required this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class CartItemWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10.r),
                 child: Stack(
                   children: [
-                    AppImage(imageName: "home_product.png"),
+                    AppImage(imageName:image),
                     Positioned(
                       top: 6.h,
                       left: 6.w,

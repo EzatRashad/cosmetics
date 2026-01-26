@@ -51,3 +51,5 @@ class UpdateCartItemError extends CartState {
   final String error;
   UpdateCartItemError(this.error);
 }
+
+ 

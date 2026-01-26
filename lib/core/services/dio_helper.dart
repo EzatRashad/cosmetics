@@ -1,6 +1,8 @@
 import 'package:cosmetics/core/constants/api_constants.dart';
 import 'package:cosmetics/core/error/api_error.dart';
+import 'package:cosmetics/view_model/auth/auth_cubit.dart';
 import 'package:dio/dio.dart';
+final AuthCubit authCubit = AuthCubit();
 
 class DioHelper {
   static late Dio dio;
@@ -17,6 +19,7 @@ static void init() {
         'Accept': 'application/json',
       },
     ),
+    
   );
 
   dio.interceptors.add(
@@ -27,6 +30,14 @@ static void init() {
         }
         return handler.next(options);
       },
+   onError: (DioException error, handler) {
+  if (error.response?.statusCode == 401) {
+    authCubit.logout();
+  }
+  handler.next(error);
+},
+
+
     ),
   );
 

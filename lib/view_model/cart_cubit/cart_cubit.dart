@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:cosmetics/core/error/api_error.dart';
+import 'package:cosmetics/core/services/cashe_helper.dart';
 import 'package:cosmetics/core/services/dio_helper.dart';
 import 'package:cosmetics/core/constants/api_constants.dart';
 import 'package:cosmetics/models/cart_model.dart';
@@ -23,34 +24,33 @@ class CartCubit extends Cubit<CartState> {
   }
 
   // داخل CartCubit
-Future<void> updateCartItem({
-  required String productId,
-  required int quantity,
-}) async {
-  
-  try {
-    await DioHelper.put(
-      url: updateCartItemEndpoint,
-      queryParameters: {
-        "quantity": quantity.toString(),
-        "productId": productId,
-      },
-    );
+  Future<void> updateCartItem({
+    required String productId,
+    required int quantity,
+  }) async {
+    try {
+      await DioHelper.put(
+        url: updateCartItemEndpoint,
+        queryParameters: {
+          "quantity": quantity.toString(),
+          "productId": productId,
+        },
+      );
 
-    await getCartSilent(); 
-    
-    emit(UpdateCartItemSuccess(message: "Updated Successfully"));
-  } on ApiError catch (error) {
-    emit(UpdateCartItemError(error.message));
+      await getCartSilent();
+
+      emit(UpdateCartItemSuccess(message: "Updated Successfully"));
+    } on ApiError catch (error) {
+      emit(UpdateCartItemError(error.message));
+    }
   }
-}
 
-Future<void> getCartSilent() async {
-  try {
-    final response = await DioHelper.getData(url: getCartEndpoint);
-    emit(GetCartSuccess(CartModel.fromJson(response.data)));
-  } catch (_) {}
-}
+  Future<void> getCartSilent() async {
+    try {
+      final response = await DioHelper.getData(url: getCartEndpoint);
+      emit(GetCartSuccess(CartModel.fromJson(response.data)));
+    } catch (_) {}
+  }
 
   Future<void> removeItem({required String itemId}) async {
     try {
@@ -83,4 +83,6 @@ Future<void> getCartSilent() async {
       emit(AddToCartError(error.message));
     }
   }
-}
+
+ 
+  }
