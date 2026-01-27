@@ -29,12 +29,11 @@ class LoginViewState extends State<LoginView> {
   final password = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
-  Status loginStatus = Status.initial;
-  Status getCountriesStatus = Status.initial;
+  AppStatus loginStatus = AppStatus.initial;
+  AppStatus getCountriesStatus = AppStatus.initial;
 
   List<String> countries = [];
   String selectedCountryCode = "+20";
-  String? errorMessage;
   bool isPasswordVisible = true;
 
   @override
@@ -44,22 +43,27 @@ class LoginViewState extends State<LoginView> {
   }
 
   Future<void> getCountries() async {
-    getCountriesStatus = Status.loading;
+    setState(() {
+      getCountriesStatus = AppStatus.loading;
+    });
     try {
       final response = await DioHelper.getData(url: countryCodesEndpoint);
 
       setState(() {
+        countries = [];
         countries = List<String>.from(response.data.map((e) => e['code']));
-        getCountriesStatus = Status.success;
+        getCountriesStatus = AppStatus.success;
       });
     } catch (e) {
-      getCountriesStatus = Status.error;
+      setState(() {
+        getCountriesStatus = AppStatus.error;
+      });
     }
   }
 
   Future<void> login() async {
     setState(() {
-      loginStatus = Status.loading;
+      loginStatus = AppStatus.loading;
     });
 
     try {
@@ -79,7 +83,7 @@ class LoginViewState extends State<LoginView> {
       token = user.token;
 
       setState(() {
-        loginStatus = Status.success;
+        loginStatus = AppStatus.success;
       });
 
       context.showSnackBar(
@@ -91,8 +95,7 @@ class LoginViewState extends State<LoginView> {
       context.nextScreen(const LayoutView(), remove: true);
     } on ApiError catch (e) {
       setState(() {
-        loginStatus = Status.error;
-        errorMessage = e.message;
+        loginStatus = AppStatus.error;
       });
 
       context.showSnackBar(
@@ -130,9 +133,9 @@ class LoginViewState extends State<LoginView> {
                   children: [
                     Expanded(
                       flex: 1,
-                      child: getCountriesStatus == Status.loading
+                      child: getCountriesStatus == AppStatus.loading
                           ? CircularProgressIndicator()
-                          : getCountriesStatus == Status.error
+                          : getCountriesStatus == AppStatus.error
                           ? IconButton(
                               onPressed: () => getCountries(),
                               icon: Icon(Icons.replay_outlined),
@@ -157,8 +160,7 @@ class LoginViewState extends State<LoginView> {
 
                 8.ph,
 
-             
-                AppInput( 
+                AppInput(
                   label: "Password",
                   controller: password,
                   obscureText: isPasswordVisible,
@@ -196,8 +198,7 @@ class LoginViewState extends State<LoginView> {
 
                 43.ph,
 
-                
-                loginStatus == Status.loading
+                loginStatus == AppStatus.loading
                     ? const Center(child: CircularProgressIndicator())
                     : AppButton(
                         width: 250.w,
