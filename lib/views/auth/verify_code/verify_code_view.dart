@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cosmetics/core/style/app_colors.dart';
 import 'package:cosmetics/core/utils/navigate.dart';
 import 'package:cosmetics/core/utils/utils.dart';
@@ -29,6 +31,23 @@ class VerifyCodeView extends StatefulWidget {
 }
 
 class _VerifyCodeViewState extends State<VerifyCodeView> {
+  int remainingSeconds = 60;
+  Timer? countdownTimer;
+  void startTimer() {
+    countdownTimer?.cancel();
+    remainingSeconds = 60;
+
+    countdownTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (remainingSeconds == 0) {
+        timer.cancel();
+      } else {
+        setState(() {
+          remainingSeconds--;
+        });
+      }
+    });
+  }
+
   final List<TextEditingController> controllers = List.generate(
     4,
     (_) => TextEditingController(),
@@ -37,6 +56,13 @@ class _VerifyCodeViewState extends State<VerifyCodeView> {
   final List<FocusNode> focusNodes = List.generate(4, (_) => FocusNode());
 
   @override
+  void initState() {
+    super.initState();
+    startTimer();
+  }
+
+  @override
+  @override
   void dispose() {
     for (final c in controllers) {
       c.dispose();
@@ -44,6 +70,8 @@ class _VerifyCodeViewState extends State<VerifyCodeView> {
     for (final f in focusNodes) {
       f.dispose();
     }
+    countdownTimer?.cancel();
+
     super.dispose();
   }
 
@@ -201,7 +229,10 @@ class _VerifyCodeViewState extends State<VerifyCodeView> {
                         style: theme.titleMedium!.copyWith(fontSize: 12.sp),
                       ),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          startTimer();
+                        },
+
                         child: Text(
                           'Resend',
                           style: theme.titleMedium!.copyWith(
@@ -212,7 +243,7 @@ class _VerifyCodeViewState extends State<VerifyCodeView> {
                       ),
                       const Spacer(),
                       Text(
-                        "0:36",
+                        "${(remainingSeconds ~/ 60).toString().padLeft(1, '0')}:${(remainingSeconds % 60).toString().padLeft(2, '0')}",
                         style: theme.titleMedium!.copyWith(fontSize: 12.sp),
                       ),
                     ],

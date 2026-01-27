@@ -79,8 +79,8 @@ class ProfileView extends StatelessWidget {
                             child: CircleAvatar(
                               radius: 60.r,
                               child: Transform.scale(
-                                scale: 1.3,
-                                child: AppImage(imageName: "prof.png"),
+                                scale: 1,
+                                child: AppImage(imageName: "man.png"),
                               ),
                             ),
                           ),

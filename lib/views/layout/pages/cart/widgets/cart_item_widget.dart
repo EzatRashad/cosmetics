@@ -25,23 +25,23 @@ class CartItemWidget extends StatelessWidget {
             SizedBox(
               width: 102.w,
               height: 102.h,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10.r),
-                child: Stack(
-                  children: [
-                    AppImage(imageName:image),
-                    Positioned(
-                      top: 6.h,
-                      left: 6.w,
-                      child: GestureDetector(
-                        onTap: () => CartCubit.get(
-                          context,
-                        ).removeItem(itemId: item.productId.toString()),
-                        child: AppImage(imageName: "out.svg", width: 19.w),
-                      ),
+              child: Stack(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(10.r),
+                    child: AppImage(imageName: "home_product.png"),
+                  ),
+                  Positioned(
+                    top: 6.h,
+                    left: 6.w,
+                    child: GestureDetector(
+                      onTap: () => CartCubit.get(
+                        context,
+                      ).removeItem(itemId: item.productId.toString()),
+                      child: AppImage(imageName: "out.svg", width: 19.w),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
             8.pw,
