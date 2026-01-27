@@ -102,3 +102,9 @@ static void init() {
     }
   }
 }
+enum Status {
+  initial,
+  loading,
+  success,
+  error,
+}
