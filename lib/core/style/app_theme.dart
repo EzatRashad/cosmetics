@@ -38,7 +38,7 @@ class AppTheme {
         fontSize: 16.sp,
       ),
       titleSmall: TextStyle(
-        color: AppColors.hint_text,
+        color: AppColors.hintText,
         fontWeight: FontWeight.normal,
         fontFamily: "montserrat",
         fontSize: 14.sp,
@@ -78,7 +78,7 @@ class AppTheme {
         fontSize: 18.sp,
       ),
       titleSmall: TextStyle(
-        color: AppColors.hint_text,
+        color: AppColors.hintText,
         fontFamily: "montserrat",
         fontWeight: FontWeight.w400,
         fontSize: 14.sp,

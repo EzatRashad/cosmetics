@@ -61,7 +61,7 @@ class ProductDetailsView extends StatelessWidget {
                         : product.description,
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       fontSize: 14.sp,
-                      color: AppColors.hint_text,
+                      color: AppColors.hintText,
                     ),
                   ),
 

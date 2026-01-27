@@ -29,26 +29,24 @@ class VerifyCodeFields extends StatelessWidget {
             textAlign: TextAlign.center,
             keyboardType: TextInputType.number,
             maxLength: 1,
-            cursorColor: AppColors.dark_gray,
+            cursorColor: AppColors.darkGray,
             onTapOutside: (_) => FocusManager.instance.primaryFocus?.unfocus(),
             onChanged: (value) => onCodeChanged(value, index),
-            style: Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 16.sp),
+            style: Theme.of(
+              context,
+            ).textTheme.titleLarge!.copyWith(fontSize: 16.sp),
             decoration: InputDecoration(
               counterText: '',
               hintText: "_",
-              
+
               hintStyle: TextStyle(
                 fontSize: 16.sp,
                 fontWeight: FontWeight.bold,
-                color: AppColors.hint_text
-
+                color: AppColors.hintText,
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12.r),
-                borderSide:   BorderSide(
-                  color: AppColors.primary,
-                  width: 1.5.w,
-                ),
+                borderSide: BorderSide(color: AppColors.primary, width: 1.5.w),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12.r),

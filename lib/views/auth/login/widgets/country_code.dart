@@ -3,18 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CountryCodeDropdown extends StatefulWidget {
-  const CountryCodeDropdown({super.key, required this.codes, required this.onChanged, required this.initialValue});
+  const CountryCodeDropdown({
+    super.key,
+    required this.codes,
+    required this.onChanged,
+    required this.initialValue,
+  });
   final List<String> codes;
   final String initialValue;
   final ValueChanged<String?> onChanged;
-
 
   @override
   State<CountryCodeDropdown> createState() => CountryCodeDropdownState();
 }
 
 class CountryCodeDropdownState extends State<CountryCodeDropdown> {
- 
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField(
@@ -27,7 +30,7 @@ class CountryCodeDropdownState extends State<CountryCodeDropdown> {
         child: Icon(
           Icons.arrow_back_ios_new,
           size: 16.sp,
-          color: AppColors.hint_text,
+          color: AppColors.hintText,
         ),
       ),
 
@@ -49,8 +52,7 @@ class CountryCodeDropdownState extends State<CountryCodeDropdown> {
       items: widget.codes.map((code) {
         return DropdownMenuItem(value: code, child: Text(code));
       }).toList(),
-      onChanged: widget.onChanged
+      onChanged: widget.onChanged,
     );
   }
 }
- 

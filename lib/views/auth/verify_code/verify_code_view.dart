@@ -135,7 +135,7 @@ class _VerifyCodeViewState extends State<VerifyCodeView> {
                                 "Congratulations! Your account has been successfully activatedL",
                                 textAlign: TextAlign.center,
                                 style: theme.titleMedium!.copyWith(
-                                  color: AppColors.hint_text,
+                                  color: AppColors.hintText,
                                 ),
                               ),
                               23.ph,
