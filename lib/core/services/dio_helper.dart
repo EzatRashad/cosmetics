@@ -1,4 +1,4 @@
-import 'package:cosmetics/core/constants/api_constants.dart';
+import 'package:cosmetics/core/constants/consts.dart';
 import 'package:cosmetics/core/error/api_error.dart';
 import 'package:cosmetics/view_model/auth/auth_cubit.dart';
 import 'package:dio/dio.dart';

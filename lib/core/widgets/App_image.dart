@@ -7,6 +7,7 @@ class AppImage extends StatelessWidget {
   final double? height;
   final BoxFit fit;
   final Color? color;
+  final Widget? placeholder;
 
   const AppImage({
     super.key,
@@ -15,9 +16,12 @@ class AppImage extends StatelessWidget {
     this.height,
     this.fit = BoxFit.contain,
     this.color,
+    this.placeholder,
   });
 
   bool get isSvg => imageName.toLowerCase().endsWith('.svg');
+  bool get isNetwork =>
+      imageName.startsWith('http') ;
 
   String get imagePath {
     if (isSvg) {
@@ -29,6 +33,32 @@ class AppImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (isNetwork && isSvg) {
+      return SvgPicture.network(
+        imageName,
+        width: width,
+        height: height,
+        fit: fit,
+        colorFilter: color != null
+            ? ColorFilter.mode(color!, BlendMode.srcIn)
+            : null,
+        placeholderBuilder: (_) =>
+            placeholder ?? const CircularProgressIndicator(),
+      );
+    }
+
+    if (isNetwork) {
+      return Image.network(
+        imageName,
+        width: width,
+        height: height,
+        fit: fit,
+        color: color,
+        errorBuilder: (context, error, stackTrace) =>
+            AppImage(imageName: "man.png"),
+      );
+    }
+
     if (isSvg) {
       return SvgPicture.asset(
         imagePath,
@@ -39,14 +69,14 @@ class AppImage extends StatelessWidget {
             ? ColorFilter.mode(color!, BlendMode.srcIn)
             : null,
       );
-    } else {
-      return Image.asset(
-        imagePath,
-        width: width,
-        height: height,
-        fit: fit,
-        color: color,
-      );
     }
+
+    return Image.asset(
+      imagePath,
+      width: width,
+      height: height,
+      fit: fit,
+      color: color,
+    );
   }
 }

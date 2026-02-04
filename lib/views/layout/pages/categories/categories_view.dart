@@ -1,6 +1,6 @@
-import 'package:cosmetics/core/constants/api_constants.dart';
+import 'package:cosmetics/core/constants/consts.dart';
 import 'package:cosmetics/core/utils/utils.dart';
-import 'package:cosmetics/core/widgets/App_image.dart';
+import 'package:cosmetics/core/widgets/app_image.dart';
 import 'package:cosmetics/core/widgets/app_network_image.dart';
 import 'package:cosmetics/view_model/categories_cubit/categories_state.dart';
 import 'package:cosmetics/view_model/categories_cubit/catigories_cubit.dart';

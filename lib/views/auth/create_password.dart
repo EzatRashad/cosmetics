@@ -2,7 +2,7 @@ import 'package:cosmetics/core/style/app_colors.dart';
 import 'package:cosmetics/core/utils/navigate.dart';
 import 'package:cosmetics/core/utils/utils.dart';
 import 'package:cosmetics/core/utils/validatio.dart';
-import 'package:cosmetics/core/widgets/App_image.dart';
+import 'package:cosmetics/core/widgets/app_image.dart';
 import 'package:cosmetics/core/widgets/app_button.dart';
 import 'package:cosmetics/core/widgets/app_input.dart';
 import 'package:cosmetics/view_model/forget_password/forget_password_cubit.dart';

@@ -3,7 +3,7 @@ import 'package:cosmetics/core/utils/navigate.dart';
 import 'package:cosmetics/core/utils/utils.dart';
 import 'package:cosmetics/core/utils/validatio.dart';
 import 'package:cosmetics/core/widgets/app_button.dart';
-import 'package:cosmetics/core/widgets/App_image.dart';
+import 'package:cosmetics/core/widgets/app_image.dart';
 import 'package:cosmetics/core/widgets/app_input.dart';
 import 'package:cosmetics/models/profile_model.dart';
 import 'package:cosmetics/view_model/profile_cubit/profile_cubit.dart';

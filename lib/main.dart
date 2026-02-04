@@ -1,11 +1,12 @@
 import 'dart:developer';
 
-import 'package:cosmetics/core/constants/api_constants.dart';
+import 'package:cosmetics/core/constants/consts.dart';
 import 'package:cosmetics/core/services/cashe_helper.dart';
 import 'package:cosmetics/core/services/dio_helper.dart';
 import 'package:cosmetics/core/style/app_theme.dart';
 import 'package:cosmetics/view_model/auth/auth_cubit.dart';
 import 'package:cosmetics/view_model/cart_cubit/cart_cubit.dart';
+import 'package:cosmetics/view_model/checkout/checkout_cubit.dart';
 import 'package:cosmetics/views/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,6 +26,7 @@ void main() async {
         //   create: (context) => HomeCubit()..getHomeData(),
         // ),
         BlocProvider<AuthCubit>.value(value: authCubit),
+        BlocProvider(create: (_) => CheckoutCubit()),
 
         BlocProvider(create: (context) => CartCubit()),
       ],

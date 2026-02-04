@@ -1,9 +1,9 @@
-import 'package:cosmetics/core/constants/api_constants.dart';
+import 'package:cosmetics/core/constants/consts.dart';
 import 'package:cosmetics/core/services/cashe_helper.dart';
 import 'package:cosmetics/core/style/app_colors.dart';
 import 'package:cosmetics/core/utils/navigate.dart';
 import 'package:cosmetics/core/utils/utils.dart';
-import 'package:cosmetics/core/widgets/App_image.dart';
+import 'package:cosmetics/core/widgets/app_image.dart';
 import 'package:cosmetics/view_model/profile_cubit/profile_cubit.dart';
 import 'package:cosmetics/view_model/profile_cubit/profile_state.dart';
 import 'package:cosmetics/views/auth/login/login_view.dart';
@@ -78,9 +78,9 @@ class ProfileView extends StatelessWidget {
                           child: Center(
                             child: CircleAvatar(
                               radius: 60.r,
-                              child: Transform.scale(
-                                scale: 1,
-                                child: AppImage(imageName: "man.png"),
+                              backgroundColor: Colors.grey.shade200,
+                              backgroundImage: NetworkImage(
+                                profile.profilePhotoUrl ?? "",
                               ),
                             ),
                           ),

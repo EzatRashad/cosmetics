@@ -1,4 +1,4 @@
-const baseUrl = 'http://www.cosmatics.growfet.com';
+const baseUrl = 'https://cosmatics.growfet.com';
 const loginEndpoint = "/api/Auth/login";
 const registerEndpoint = '/api/Auth/register';
 const countryCodesEndpoint = '/api/Countries';
@@ -19,4 +19,10 @@ const skipOnboardingK = "skipOnboardingK";
 const loadingImage = "assets/images/Loading.json";
 const logedK = "loged";
 const tokenK = "tokenK";
+const latk = "latK";
+late double? userLat;
+late double? userLang;
+late String? userAddress;
+const longk = "longK";
+const posK = "posK";
 String? token;

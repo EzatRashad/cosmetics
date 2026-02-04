@@ -1,4 +1,4 @@
-import 'package:cosmetics/core/widgets/App_image.dart';
+import 'package:cosmetics/core/widgets/app_image.dart';
 import 'package:cosmetics/core/widgets/app_network_image.dart';
 import 'package:cosmetics/models/slider_model.dart';
 import 'package:flutter/material.dart';

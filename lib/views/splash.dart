@@ -1,8 +1,8 @@
-import 'package:cosmetics/core/constants/api_constants.dart';
+import 'package:cosmetics/core/constants/consts.dart';
 import 'package:cosmetics/core/services/cashe_helper.dart';
 import 'package:cosmetics/core/style/app_colors.dart';
 import 'package:cosmetics/core/utils/navigate.dart';
-import 'package:cosmetics/core/widgets/App_image.dart';
+import 'package:cosmetics/core/widgets/app_image.dart';
 import 'package:cosmetics/views/auth/login/login_view.dart';
 import 'package:cosmetics/views/layout/presentation/view/layout_view.dart';
 import 'package:cosmetics/views/onboarding.dart';

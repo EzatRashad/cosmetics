@@ -20,7 +20,9 @@ dependencies:
   shared_preferences:
   flutter_screenutil:
   google_maps_flutter:
-
+  geolocator:
+  geocoding:
+  map_launcher:
 dev_dependencies:
   flutter_test:
     sdk: flutter

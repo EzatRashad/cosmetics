@@ -4,7 +4,7 @@ import 'package:cosmetics/core/style/app_colors.dart';
 import 'package:cosmetics/core/utils/navigate.dart';
 import 'package:cosmetics/core/utils/utils.dart';
 import 'package:cosmetics/core/widgets/app_button.dart';
-import 'package:cosmetics/core/widgets/App_image.dart';
+import 'package:cosmetics/core/widgets/app_image.dart';
 import 'package:cosmetics/view_model/otp_cubit/oto_state.dart';
 import 'package:cosmetics/view_model/otp_cubit/otp_cubit.dart';
 import 'package:cosmetics/views/auth/create_password.dart';

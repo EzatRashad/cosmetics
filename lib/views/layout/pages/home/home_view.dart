@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:cosmetics/core/constants/api_constants.dart';
+import 'package:cosmetics/core/constants/consts.dart';
 import 'package:cosmetics/core/style/app_colors.dart';
 import 'package:cosmetics/core/utils/utils.dart';
 import 'package:cosmetics/view_model/cart_cubit/cart_cubit.dart';
@@ -51,10 +51,7 @@ class HomeView extends StatelessWidget {
                 builder: (context, state) {
                   if (state is HomeLoading) {
                     return Center(
-                      child: Lottie.asset(
-                        loadingImage,
-                        width: 180,
-                      ),
+                      child: Lottie.asset(loadingImage, width: 180),
                     );
                   }
 
@@ -83,9 +80,7 @@ class HomeView extends StatelessWidget {
                               26.ph,
                               Text(
                                 "Top rated products",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleLarge!
+                                style: Theme.of(context).textTheme.titleLarge!
                                     .copyWith(fontSize: 16.sp),
                               ),
                               14.ph,
@@ -96,11 +91,11 @@ class HomeView extends StatelessWidget {
                           itemCount: state.products.length,
                           gridDelegate:
                               SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            childAspectRatio: 163.w / 214.h,
-                            mainAxisSpacing: 8.h,
-                            crossAxisSpacing: 16.w,
-                          ),
+                                crossAxisCount: 2,
+                                childAspectRatio: 163.w / 214.h,
+                                mainAxisSpacing: 8.h,
+                                crossAxisSpacing: 16.w,
+                              ),
                           itemBuilder: (context, index) => ProductItem(
                             productModel: state.products[index],
                             image:

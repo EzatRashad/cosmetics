@@ -1,5 +1,5 @@
 import 'package:cosmetics/core/utils/utils.dart';
-import 'package:cosmetics/core/widgets/App_image.dart';
+import 'package:cosmetics/core/widgets/app_image.dart';
 import 'package:cosmetics/models/cart_item_model.dart';
 import 'package:cosmetics/view_model/cart_cubit/cart_cubit.dart';
 import 'package:cosmetics/view_model/cart_cubit/cart_state.dart'; // تأكد من استيراد الـ states

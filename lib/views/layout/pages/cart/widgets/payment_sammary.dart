@@ -40,7 +40,7 @@ class PaymentSammary extends StatelessWidget {
             color: AppColors.secondary,
           ),
         ),
-        40.ph,
+        25.ph,
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
