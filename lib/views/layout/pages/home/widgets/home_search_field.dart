@@ -1,7 +1,10 @@
 import 'package:cosmetics/core/style/app_colors.dart';
 import 'package:cosmetics/core/widgets/app_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../../../view_model/home_cubit/home_cubit.dart';
 
 class HomeSearchField extends StatelessWidget {
   const HomeSearchField({super.key});
@@ -20,6 +23,10 @@ class HomeSearchField extends StatelessWidget {
         ],
       ),
       child: TextField(
+        onTapOutside: (event) => FocusManager.instance.primaryFocus!.unfocus(),
+        onChanged: (value) {
+          context.read<HomeCubit>().searchProducts(value);
+        },
         keyboardType: TextInputType.text,
         decoration: InputDecoration(
           hint: Text(

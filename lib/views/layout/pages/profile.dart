@@ -76,11 +76,20 @@ class ProfileView extends StatelessWidget {
                           left: 0,
                           right: 0,
                           child: Center(
-                            child: CircleAvatar(
-                              radius: 60.r,
-                              backgroundColor: Colors.grey.shade200,
-                              backgroundImage: NetworkImage(
-                                profile.profilePhotoUrl ?? "",
+                            child: Container(
+                              width: 100.w,
+                              height: 100.h,
+                              decoration: BoxDecoration(shape: BoxShape.circle),
+                              child: ClipOval(
+                                child: AppImage(
+                                  imageName: profile.profilePhotoUrl ?? "",
+
+                                  fit: BoxFit.cover,
+
+                                  errorWidget: const AppImage(
+                                    imageName: "man.png",
+                                  ),
+                                ),
                               ),
                             ),
                           ),

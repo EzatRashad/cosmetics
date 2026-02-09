@@ -18,6 +18,8 @@ dependencies:
   skeletonizer:
   lottie:
   shared_preferences:
+  cached_network_image:
+  shimmer:
   flutter_screenutil:
   google_maps_flutter:
   geolocator:

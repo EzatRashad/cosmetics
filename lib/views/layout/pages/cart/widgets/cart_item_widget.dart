@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cosmetics/core/utils/utils.dart';
 import 'package:cosmetics/core/widgets/app_image.dart';
 import 'package:cosmetics/models/cart_item_model.dart';
@@ -6,6 +7,7 @@ import 'package:cosmetics/view_model/cart_cubit/cart_state.dart'; // تأكد م
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shimmer/shimmer.dart';
 
 class CartItemWidget extends StatelessWidget {
   final CartItemModel item;
@@ -29,7 +31,21 @@ class CartItemWidget extends StatelessWidget {
                 children: [
                   ClipRRect(
                     borderRadius: BorderRadius.circular(10.r),
-                    child: AppImage(imageName: "home_product.png"),
+                    child: CachedNetworkImage(
+                      imageUrl: item.imageUrl,
+                      placeholder: (context, url) => Shimmer.fromColors(
+                        baseColor: Colors.grey.shade300,
+                        highlightColor: Colors.grey.shade100,
+                        child: Container(
+                          width: double.infinity,
+                          height: double.infinity,
+                          color: Colors.white,
+                        ),
+                      ),
+
+                      errorWidget: (context, url, error) =>
+                          AppImage(imageName: "home_product.png"),
+                    ),
                   ),
                   Positioned(
                     top: 6.h,
@@ -97,6 +113,7 @@ class CartItemWidget extends StatelessWidget {
 
 class CartCounter extends StatelessWidget {
   final CartItemModel item;
+
   const CartCounter({super.key, required this.item});
 
   @override

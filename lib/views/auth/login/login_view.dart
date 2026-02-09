@@ -141,7 +141,7 @@ class _LoginViewState extends State<LoginView> {
                       ),
                       43.ph,
                       state is LoginLoading
-                          ? const Center(child: CircularProgressIndicator())
+                          ?   Center(child: CircularProgressIndicator(color: AppColors.primary,))
                           : AppButton(
                               width: 250.w,
                               height: 56.h,

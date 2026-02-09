@@ -76,14 +76,17 @@ class HomeView extends StatelessWidget {
                               12.ph,
                               const HomeSearchField(),
                               15.ph,
-                              HomeBanner(sliders: state.sliders),
-                              26.ph,
-                              Text(
-                                "Top rated products",
-                                style: Theme.of(context).textTheme.titleLarge!
-                                    .copyWith(fontSize: 16.sp),
-                              ),
-                              14.ph,
+                              if (!state.isSearching)
+                                HomeBanner(sliders: state.sliders),
+
+                              if (!state.isSearching) ...[
+                                26.ph,
+                                Text("Top rated products"),
+                                14.ph,
+                              ]
+
+
+
                             ],
                           ),
                         ),

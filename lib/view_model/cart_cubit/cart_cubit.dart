@@ -23,7 +23,7 @@ class CartCubit extends Cubit<CartState> {
     }
   }
 
-  // داخل CartCubit
+
   Future<void> updateCartItem({
     required String productId,
     required int quantity,

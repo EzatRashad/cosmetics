@@ -1,5 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shimmer/shimmer.dart';
 
 class AppImage extends StatelessWidget {
   final String imageName;
@@ -8,6 +10,7 @@ class AppImage extends StatelessWidget {
   final BoxFit fit;
   final Color? color;
   final Widget? placeholder;
+  final Widget? errorWidget;
 
   const AppImage({
     super.key,
@@ -17,11 +20,12 @@ class AppImage extends StatelessWidget {
     this.fit = BoxFit.contain,
     this.color,
     this.placeholder,
+    this.errorWidget,
   });
 
   bool get isSvg => imageName.toLowerCase().endsWith('.svg');
-  bool get isNetwork =>
-      imageName.startsWith('http') ;
+
+  bool get isNetwork => imageName.startsWith('http');
 
   String get imagePath {
     if (isSvg) {
@@ -48,14 +52,26 @@ class AppImage extends StatelessWidget {
     }
 
     if (isNetwork) {
-      return Image.network(
-        imageName,
+      return CachedNetworkImage(
+        imageUrl: imageName,
         width: width,
         height: height,
         fit: fit,
         color: color,
-        errorBuilder: (context, error, stackTrace) =>
-            AppImage(imageName: "man.png"),
+
+        placeholder: (context, url) =>
+            placeholder ??
+            Shimmer.fromColors(
+              baseColor: Colors.grey.shade300,
+              highlightColor: Colors.grey.shade100,
+              child: Container(
+                width: double.infinity,
+                height: double.infinity,
+                color: Colors.white,
+              ),
+            ),
+
+        errorWidget: (context, url, error) => errorWidget ?? Icon(Icons.error),
       );
     }
 

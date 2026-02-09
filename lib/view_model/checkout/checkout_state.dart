@@ -16,6 +16,7 @@ class CheckoutLoaded extends CheckoutState {
   bool get isOrderEnabled => address.isNotEmpty;
 }
 
+class CheckoutLoading extends CheckoutState{}
 class CheckoutError extends CheckoutState {
   final String message;
   CheckoutError(this.message);

@@ -1,3 +1,4 @@
+import 'package:cosmetics/core/style/app_colors.dart';
 import 'package:cosmetics/core/utils/utils.dart';
 import 'package:cosmetics/view_model/checkout/checkout_cubit.dart';
 import 'package:cosmetics/view_model/checkout/checkout_state.dart';
@@ -46,14 +47,20 @@ class AddressPayment extends StatelessWidget {
                 borderRadius: BorderRadius.circular(50.r),
                 border: Border.all(color: const Color(0xff73B9BB), width: 2.w),
               ),
-              child: (address.isEmpty)
+              child: state is CheckoutError
                   ? GestureDetector(
                       onTap: () => context.nextScreen(const PinLocatinView()),
                       child: Center(
                         child: Text(
-                          "No Address Selected, select now",
+                          state.message,
                           style: theme.titleMedium!.copyWith(fontSize: 12.sp),
                         ),
+                      ),
+                    )
+                  : state is CheckoutLoading
+                  ? Center(
+                      child: CircularProgressIndicator(
+                        color: AppColors.primary,
                       ),
                     )
                   : ListTile(
@@ -70,6 +77,7 @@ class AddressPayment extends StatelessWidget {
                                   target: LatLng(lat, lon),
                                   zoom: 10,
                                 ),
+
                                 markers: {
                                   Marker(
                                     markerId: const MarkerId('loc'),

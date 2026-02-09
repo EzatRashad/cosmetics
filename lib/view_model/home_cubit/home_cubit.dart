@@ -11,6 +11,9 @@ class HomeCubit extends Cubit<HomeState> {
 
   static HomeCubit get(context) => BlocProvider.of(context);
 
+  List<ProductModel> allProducts = [];
+  List<ProductModel> filteredProducts = [];
+
   Future<void> getHomeData() async {
     emit(HomeLoading());
 
@@ -22,50 +25,38 @@ class HomeCubit extends Cubit<HomeState> {
           .map((e) => SliderModel.fromJson(e))
           .toList();
 
-      final products = (productsResponse.data as List)
+      allProducts = (productsResponse.data as List)
           .map((e) => ProductModel.fromJson(e))
           .toList();
 
-      emit(HomeSuccess(sliders: sliders, products: products));
+      filteredProducts = allProducts;
+
+      emit(HomeSuccess(sliders: sliders, products: filteredProducts,isSearching: false));
     } on ApiError catch (error) {
       emit(HomeError(error.message));
     }
   }
 
- 
+  void searchProducts(String query) {
+    bool searching = query.isNotEmpty;
+
+    if (query.isEmpty) {
+      filteredProducts = allProducts;
+    } else {
+      filteredProducts = allProducts.where((product) {
+        return product.name!
+            .toLowerCase()
+            .contains(query.toLowerCase());
+      }).toList();
+    }
+
+    if (state is HomeSuccess) {
+      emit(HomeSuccess(
+        sliders: (state as HomeSuccess).sliders,
+        products: filteredProducts,
+        isSearching: searching,
+      ));
+    }
+  }
+
 }
-
-// class HomeCubit extends Cubit<HomeState> {
-//   HomeCubit() : super(HomeInitial());
-//   static HomeCubit get(context) => BlocProvider.of(context);
-
-//   Future<void> getSliders() async {
-//     emit(GetSlidersLoading());
-
-//     try {
-//       final response = await DioHelper.getData(url: sliderEndpoint);
-//       List<SliderModel> sliders = (response.data as List)
-//           .map((slider) => SliderModel.fromJson(slider))
-//           .toList();
-
-//       emit(GetSlidersSuccess(sliders));
-//     } on ApiError catch (error) {
-//       emit(GetSlidersError(error.message));
-//     }
-//   }
-
-//   Future<void> getProducts() async {
-//     emit(GetProductsLoading());
-
-//     try {
-//       final response = await DioHelper.getData(url: productsEndpoint);
-//       List<ProductModel> products = (response.data as List)
-//           .map((e) => ProductModel.fromJson(e))
-//           .toList();
-
-//       emit(GetProductsSuccess(products));
-//     } on ApiError catch (error) {
-//       emit(GetProductsError(error.message));
-//     }
-//   }
-// }

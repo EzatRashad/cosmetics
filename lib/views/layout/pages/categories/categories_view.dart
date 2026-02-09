@@ -42,10 +42,10 @@ class CategoriesView extends StatelessWidget {
                                     aspectRatio: 64.w / 69.h,
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(10.r),
-                                      child: AppNetworkImage(
-                                        image:
-                                            "https://images.pexels.com/photos/15191189/pexels-photo-15191189.jpeg",
-                                      ),
+                                      child: AppImage(imageName:  state.categoryList[index].imageUrl,errorWidget: AppImage(
+                                        imageName:
+                                        "https://images.pexels.com/photos/15191189/pexels-photo-15191189.jpeg",
+                                      ),)
                                     ),
                                   ),
                                 ),
