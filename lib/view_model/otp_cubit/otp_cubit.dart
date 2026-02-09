@@ -27,4 +27,20 @@ class OtpCubit extends Cubit<OtpState> {
       emit(OtpError(message: error.message));
     }
   }
+
+  Future<void> resendOtp({
+    required String countryCode,
+    required String phoneNumber,
+  }) async {
+    emit(ResendOtpLoading());
+    try {
+      final response = await DioHelper.postData(
+        url: resendOtpEndpoint,
+        data: {'countryCode': countryCode, 'phoneNumber': phoneNumber},
+      );
+      emit(ResendOtpSuccess(message: response.data['message']));
+    } on ApiError catch (error) {
+      emit(ResendOtpError(message: error.message));
+    }
+  }
 }

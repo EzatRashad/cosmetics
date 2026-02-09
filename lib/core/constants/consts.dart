@@ -3,6 +3,7 @@ const loginEndpoint = "/api/Auth/login";
 const registerEndpoint = '/api/Auth/register';
 const countryCodesEndpoint = '/api/Countries';
 const otpEndpoint = "/api/Auth/verify-otp";
+const resendOtpEndpoint = "/api/Auth/resend-otp";
 const sliderEndpoint = "/api/Sliders";
 const categoriesEndpoint = "/api/Categories";
 const productsEndpoint = "/api/Products";

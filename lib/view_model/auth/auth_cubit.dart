@@ -10,9 +10,7 @@ class AuthCubit extends Cubit<AuthState> {
     token = "";
     await CasheHelper.saveData(key: logedK, value: false);
     await CasheHelper.saveData(key: tokenK, value: "");
-    await CasheHelper.saveData(key: posK, value: null);
-    await CasheHelper.saveData(key: latk, value: null);
-    await CasheHelper.saveData(key: longk, value: null);
+
     emit(AuthUnauthenticated());
   }
 }

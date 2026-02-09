@@ -158,12 +158,12 @@ class _VerifyCodeViewState extends State<VerifyCodeView> {
               }
 
               if (state is OtpError) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(state.message),
-                    backgroundColor: Colors.red,
-                  ),
-                );
+                context.showSnackBar(message: state.message,backgroundColor: AppColors.error);
+              }
+              if(state is ResendOtpError){
+                context.showSnackBar(message: state.message,backgroundColor: AppColors.error);
+              }if(state is ResendOtpSuccess){
+                context.showSnackBar(message: state.message);
               }
             },
             builder: (context, state) {
@@ -228,19 +228,28 @@ class _VerifyCodeViewState extends State<VerifyCodeView> {
                         'Didn’t receive a code? ',
                         style: theme.titleMedium!.copyWith(fontSize: 12.sp),
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          startTimer();
-                        },
+                      IgnorePointer(
+                        ignoring:remainingSeconds>0 ,
+                        child: GestureDetector(
+                          onTap: () {
+                            context.read<OtpCubit>().resendOtp(
+                              countryCode: widget.code,
+                              phoneNumber: widget.phoneNumber,
+                            );
 
-                        child: Text(
-                          'Resend',
-                          style: theme.titleMedium!.copyWith(
-                            fontSize: 12.sp,
-                            color: AppColors.primary.withValues(alpha: .5),
+
+                            startTimer();
+                          },
+                          child: Text(
+                            'Resend',
+                            style: theme.titleMedium!.copyWith(
+                              fontSize: 12.sp,
+                              color: AppColors.primary.withOpacity(0.5),
+                            ),
                           ),
                         ),
                       ),
+
                       const Spacer(),
                       Text(
                         "${(remainingSeconds ~/ 60).toString().padLeft(1, '0')}:${(remainingSeconds % 60).toString().padLeft(2, '0')}",
